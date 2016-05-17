@@ -12,13 +12,8 @@
         controller: 'MainController',
         controllerAs: 'main'
       })
-      .when('/eProduct', {
+      .when('/product', {
         templateUrl: 'app/product/category1.html',
-        controller: 'listProductController',
-        controllerAs: 'vm'
-      })
-      .when('/uProduct', {
-        templateUrl: 'app/product/category2.html',
         controller: 'listProductController',
         controllerAs: 'vm'
       })
