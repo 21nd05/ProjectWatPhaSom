@@ -18,7 +18,7 @@ class DBManager extends Thread {
 	public void run(){
 		System.setProperty("java.awt.headless", "false");
 		org.hsqldb.util.DatabaseManagerSwing.main(new String[] {
-				"--url",  "jdbc:mysql://localhost/WatPhaSomTest", "--noexit"
+				"--url",  "jdbc:mysql://localhost/watphasomdb", "--noexit"
 
 		});
 	}

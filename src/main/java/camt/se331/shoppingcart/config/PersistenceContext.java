@@ -59,34 +59,7 @@ class PersistenceContext {
 
     @Autowired
     private Environment env;
-    @Bean
-    public DataSource embedDataSource(){
-        EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
-        EmbeddedDatabase db = builder.setType(EmbeddedDatabaseType.HSQL).setScriptEncoding("UTF-8").build();
 
-        return db;
-    }
-
-
-
-    public BoneCPDataSource boneCPDataSource(){
-        BoneCPDataSource boneCPDataSource = new BoneCPDataSource();
-        boneCPDataSource.setDriverClass(env.getRequiredProperty(PROPERTY_NAME_DB_DRIVER_CLASS));
-        boneCPDataSource.setJdbcUrl(env.getRequiredProperty(PROPERTY_NAME_DB_URL));
-        boneCPDataSource.setUsername(env.getRequiredProperty(PROPERTY_NAME_DB_USER));
-        boneCPDataSource.setPassword(env.getRequiredProperty(PROPERTY_NAME_DB_PASSWORD));
-        boneCPDataSource.setIdleConnectionTestPeriodInMinutes(60);
-        boneCPDataSource.setIdleMaxAgeInMinutes(420);
-        boneCPDataSource.setMaxConnectionsPerPartition(30);
-        boneCPDataSource.setMinConnectionsPerPartition(10);
-        boneCPDataSource.setPartitionCount(3);
-        boneCPDataSource.setAcquireIncrement(5);
-        boneCPDataSource.setStatementsCacheSize(100);
-
-
-        return boneCPDataSource;
-
-    }
     @Bean
     @Autowired
     public EntityManagerFactory entityManagerFactory(DataSource dataSource) {
