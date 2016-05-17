@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="robots" content="all,follow">
+    <meta name="googlebot" content="index,follow,snippet,archive">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Obaju e-commerce template">
+    <meta name="author" content="Ondrej Svestka | ondrejsvestka.cz">
+    <meta name="keywords" content="">
+
+    <title>WatphasomShop</title>
+
+    <meta name="keywords" content="">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,500,700,300,100' rel='stylesheet' type='text/css'>
+
+    <!-- styles -->
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/owl.carousel.css" rel="stylesheet">
+    <link href="css/owl.theme.css" rel="stylesheet">
+
+    <!-- theme stylesheet -->
+    <link href="css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+    <!-- your stylesheet with modifications -->
+    <link href="css/custom.css" rel="stylesheet">
+    <script src="js/respond.min.js"></script>
+    <link rel="shortcut icon" href="favicon.png">
+
+</head>
+
+<body>
+<!-- *** TOPBAR *** -->
+<div id="top">
+    <div class="container">
+        <div class="col-md-6 offer" data-animate="fadeInDown"></div>
+        <div class="col-md-6" data-animate="fadeInDown">
+            <ul class="menu">
+                <li><a href="#" data-toggle="modal" data-target="#login-modal">เข้าสู่ระบบ</a></li>
+                <li><a href="register.html">สมัครสมาชิก</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- *** Login *** -->
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="Login">เข้าสู่ระบบ</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="customer-orders.html" method="post">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="email-modal" placeholder="email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="password-modal" placeholder="password">
+                        </div>
+
+                        <p class="text-center"><button class="btn btn-primary"><i class="fa fa-sign-in"></i> เข้าสู่ระบบ </button></p>
+
+                    </form>
+
+                    <a href=" " class="text-center text-muted"> ลืมรหัสผ่าน ? </a>
+
+                </div>
+            </div>
+        </div>
+    </div> <!-- *** End Login *** -->
+</div> <!-- *** TOP BAR END *** -->
+
+
+<!-- *** NAVBAR *** -->
+<div class="navbar navbar-default yamm" role="navigation" id="navbar">
+    <div class="container">
+        <div class="navbar-header"> <!-- *** Logo *** -->
+            <img src="img/logo2.png" alt="Obaju logo" class="hidden-xs">
+        </div>
+
+        <!--/.navbar-header -->
+        <div class="navbar-collapse collapse" id="navigation">
+            <ul class="nav navbar-nav navbar-left">
+                <li class="active"><a href="index.html">หน้าหลัก</a></li>
+                <li class="dropdown yamm-fw">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="200">สินค้า <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <div class="yamm-content">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <h5>ประเภทสินค้า</h5>
+                                        <ul>
+                                            <li><a href="category1.html">สินค้าอุปโภค</a></li>
+                                            <li><a href="category2.html">สินค้าบริโภค</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div> <!-- /.yamm-content -->
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#">วิธีสั่งซื้อสินค้า</a></li>
+            </ul>
+        </div> <!--/.nav-collapse -->
+
+        <div class="navbar-buttons">
+            <div class="navbar-collapse collapse right" id="basket-overview">
+                <a href="basket.html" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">ตะกร้าสินค้า</span></a>
+            </div>
+            <!--/.nav-collapse -->
+
+            <div class="navbar-collapse collapse right">
+                <button type="button" class="btn navbar-btn btn-primary" data-toggle="collapse" data-target="#search">
+                    <i class="fa fa-search"></i>
+                </button>
+            </div>
+
+            <div class="collapse clearfix" id="search">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-btn"> <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button></span>
+                    </div>
+                </form>
+            </div>
+
+        </div> <!-- end nav-collapse -->
+    </div> <!-- end container -->
+</div> <!-- /#navbar -->
+<!-- *** NAVBAR END *** -->
+
+<div id="all">
+
+    <div id="content">
+        <div class="container">
+
+            <div class="col-md-3">
+
+                <!-- *** MENUS AND FILTERS *** -->
+                <div class="panel panel-default sidebar-menu">
+
+                    <div class="panel-heading">
+                        <h3 class="panel-title">รายการสินค้า</h3>
+                    </div>
+
+                    <div class="panel-body">
+                        <ul class="nav nav-pills nav-stacked category-menu">
+                            <li> <a href="category2.html">สินค้าบริโภค <span class="badge pull-right">8</span></a> <ul>
+                                <li><a href="category2.html">กล้วยทอดกรอบ</a></li>
+                                <li><a href="category2.html">ข้าว</a></li>
+                                <li><a href="category2.html">เก๊กฮวย</a></li>
+                                <li><a href="category2.html">ชาหญ้าหวาน</a></li>
+                                <li><a href="category2.html">กาแฟฮักป่า</a></li>
+                            </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- *** MENUS AND FILTERS END *** -->
+
+            <div class="col-md-9">
+                <div class="box"> <h1>สินค้าบริโภค</h1> </div>
+
+                <div class="row products">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="product">
+                            <div class="flip-container">
+                                <div class="flipper">
+                                    <a href="detail.html"><img align="center" src="img/product1.jpg" alt="" class="img-responsive"></a>
+                                </div>
+                            </div>
+
+                            <div class="text">
+                                <h3><a href="detail.html">กล้วยทอดกรอบ (กล้วยเหลือง)</a></h3>
+                                <p class="price">50.00 บาท</p>
+                                <p class="buttons">
+                                    <a href="detail.html" class="btn btn-default">รายละเอียดสินค้า</a>
+                                    <a href="basket.html" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>เพิ่มในตะกร้า</a>
+                                </p>
+                            </div><!-- end text -->
+                        </div><!-- end product -->
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                        <div class="product">
+                            <div class="flip-container">
+                                <div class="flipper">
+                                    <a href="detail.html"><img align="center" src="img/product7.jpg" alt="" class="img-responsive"></a>
+                                </div>
+                            </div>
+
+                            <div class="text">
+                                <h3><a href="detail.html">กล้วยทอดกรอบ (กล้วยแดง)</a></h3>
+                                <p class="price">50.00 บาท</p>
+                                <p class="buttons">
+                                    <a href="detail.html" class="btn btn-default">รายละเอียดสินค้า</a>
+                                    <a href="basket.html" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>เพิ่มในตะกร้า</a>
+                                </p>
+                            </div><!-- end text -->
+                        </div><!-- end product -->
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                        <div class="product">
+                            <div class="flip-container">
+                                <div class="flipper">
+                                    <a href="detail.html"><img align="center" src="img/product6.jpg" alt="" class="img-responsive"></a>
+                                </div>
+                            </div>
+
+                            <div class="text">
+                                <h3><a href="detail.html">ข้าวกล้องงอกดอย</a></h3>
+                                <p class="price">50.00 บาท</p>
+                                <p class="buttons">
+                                    <a href="detail.html" class="btn btn-default">รายละเอียดสินค้า</a>
+                                    <a href="basket.html" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>เพิ่มในตะกร้า</a>
+                                </p>
+                            </div><!-- end text -->
+                        </div><!-- end product -->
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                        <div class="product">
+                            <div class="flip-container">
+                                <div class="flipper">
+                                    <a href="detail.html"><img align="center" src="img/product2.jpg" alt="" class="img-responsive"></a>
+                                </div>
+                            </div>
+
+                            <div class="text">
+                                <h3><a href="detail.html">ข้าวฮาง</a></h3>
+                                <p class="price">100.00 บาท</p>
+                                <p class="buttons">
+                                    <a href="detail.html" class="btn btn-default">รายละเอียดสินค้า</a>
+                                    <a href="basket.html" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>เพิ่มในตะกร้า</a>
+                                </p>
+                            </div><!-- end text -->
+                        </div><!-- end product -->
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                        <div class="product">
+                            <div class="flip-container">
+                                <div class="flipper">
+                                    <a href="detail.html"><img align="center" src="img/product4.jpg" alt="" class="img-responsive"></a>
+                                </div>
+                            </div>
+
+
+                            <div class="text">
+                                <h3><a href="detail.html">ข้าวขาว</a></h3>
+                                <p class="price">40.00 บาท</p>
+                                <p class="buttons">
+                                    <a href="detail.html" class="btn btn-default">รายละเอียดสินค้า</a>
+                                    <a href="basket.html" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>เพิ่มในตะกร้า</a>
+                                </p>
+                            </div><!-- end text -->
+                        </div><!-- end product -->
+                    </div>
+
+                    <div class="col-md-4 col-sm-6">
+                        <div class="product">
+                            <div class="flip-container">
+                                <div class="flipper">
+                                    <a href="detail.html"><img align="center" src="img/product8.jpg" alt="" class="img-responsive"></a>
+                                </div>
+                            </div>
+
+                            <div class="text">
+                                <h3><a href="detail.html">ชาเก๊กฮวย</a></h3>
+                                <p class="price">60.00 บาท</p>
+                                <p class="buttons">
+                                    <a href="detail.html" class="btn btn-default">รายละเอียดสินค้า</a>
+                                    <a href="basket.html" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>เพิ่มในตะกร้า</a>
+                                </p>
+                            </div><!-- end text -->
+                        </div><!-- end product -->
+                    </div>
+
+                    <div class="pages">
+                        <ul class="pagination">
+                            <li><a href="category2.html">&laquo;</a></li>
+                            <li class="active"><a href="category2.html">1</a></li>
+                            <li><a href="category3.html">2</a></li>
+                            <li><a href="category3.html">&raquo;</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <!-- /.col-md-9 -->
+            </div>
+            <!-- /.container -->
+        </div>
+        <!-- /#content -->
+
+
+        <!-- *** FOOTER *** -->
+        <div id="footer" data-animate="fadeInUp">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <h4> เกี่ยวกับเรา </h4>
+
+                        <ul>
+                            <li><a href="http://www.watdoiphasom.com/" target="_blank">วัดพระบรมธาตุดอยผาส้ม</a></li>
+                        </ul>
+
+                        <hr>
+
+                        <h4>User section</h4>
+
+                        <ul>
+                            <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a></li>
+                            <li><a href="register.html">Regiter</a></li>
+                        </ul>
+
+                        <hr class="hidden-md hidden-lg hidden-sm">
+
+                    </div><!-- end col-md-3 -->
+
+                    <div class="col-md-3 col-sm-6">
+                        <h4> ที่อยู่ </h4>
+                        <p>
+                            <br>ตำบล แม่สาบ
+                            <br>อำเภอ สะเมิง
+                            <br>จังหวัด เชียงใหม่
+                            <br>50250
+                        </p>
+
+                        <hr class="hidden-md hidden-lg">
+
+                    </div>
+                    <!-- /.col-md-3 -->
+
+
+
+                    <div class="col-md-3 col-sm-6">
+
+                        <h4>ติดตามข้อมูลข่าวสาร</h4>
+
+                        <form>
+                            <div class="input-group">
+                                <input type="text" class="form-control">
+                                <span class="input-group-btn"> <button class="btn btn-default" placeholder="email" type="button">ส่ง!!!</button> </span>
+                            </div>
+                        </form>
+
+                        <hr>
+
+                        <h4>ช่องทางการติดต่อ</h4>
+                        <p class="social">
+                            <a href="https://www.facebook.com/doiphasom" class="facebook external" data-animate-hover="shake"><i class="fa fa-facebook"></i></a>
+                            <a href="#" class="email external" data-animate-hover="shake"><i class="fa fa-envelope"></i></a>
+                        </p>
+
+                    </div><!-- end col-md-3 -->
+                </div><!-- end row -->
+
+            </div><!-- end container -->
+        </div><!-- end footer -->
+        <!-- *** FOOTER END *** -->
+
+
+
+
+        <!-- *** COPYRIGHT ***
+ _________________________________________________________ -->
+        <div id="copyright">
+            <div class="container">
+                <div class="col-md-6">
+                    <p class="pull-left">© 2015 Your name goes here.</p>
+
+                </div>
+                <div class="col-md-6">
+                    <p class="pull-right">Template by <a href="http://bootstrapious.com/e-commerce-templates">Bootstrapious</a> with support from <a href="https://kakusei.cz">Kakusei</a>
+                        <!-- Not removing these links is part of the licence conditions of the template. Thanks for understanding :) -->
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- *** COPYRIGHT END *** -->
+    </div>
+    <!-- /#all -->
+</div>
+
+<!-- *** SCRIPTS TO INCLUDE ***
+_________________________________________________________ -->
+<script src="js/jquery-1.11.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script src="js/waypoints.min.js"></script>
+<script src="js/modernizr.js"></script>
+<script src="js/bootstrap-hover-dropdown.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/front.js"></script>
+
+</body>
+
+</html>
