@@ -434,12 +434,12 @@ h1 {
   line-height: 32px;
   vertical-align: middle;
 }
-@media (max-width: 991px) {
+@media  {
   #content .info-bar .products-showing {
     text-align: center;
   }
 }
-@media (max-width: 991px) {
+@media  {
   #content .info-bar .products-number-sort {
     text-align: center;
     margin-top: 10px;
@@ -485,6 +485,7 @@ h1 {
 @media (max-width: 1000px) {
   #content .product .flip-container img.img-responsive {
     min-width: 100%;
+    background-color: #FFFFFF;
   }
 }
 #content .product .flip-container{

@@ -1,6 +1,6 @@
 <div id="all">
   <div id="content">
-    <div class="container">
+    <div class="container" >
 
 
       <!-- *** MENUS AND FILTERS END *** -->
@@ -8,10 +8,10 @@
       <div>
         <div class="box"><h1>สินค้าทั้งหมด</h1></div>
       </div>
-      <div class="row products">
+      <div class="row products" align="center">
         <div class="col-md-4 col-sm-6" ng-repeat="product in vm.products | filter:name ">
           <div class="product">
-            <div class="flip-container">
+            <div class="flip-container" style="margin-top: 20px">
               <div class="flipper" ng-repeat="image in product.images" align="center">
                 <img ng-src="data:{{image.contentType}};base64,{{image.content}}" class="thumbnail">
               </div>
@@ -21,9 +21,11 @@
               <h3><a href="detail.html">{{product.name}}</a></h3>
               <p class="price">{{product.description}}</p>
               <p class="price">{{product.netPrice | number}} Bath</p>
-              <p class="buttons">
-                <a href="#/productDetail/{{product.id}}" class="btn btn-default">รายละเอียดสินค้า</a>
-                <a href="#/shoppingCart/{{product.id}}" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>เพิ่มในตะกร้า</a>
+              <p class="buttons"  ng-show="hasRole('user')">
+                <a href="#/productDetail/{{product.id}}" class="btn btn-primary">รายละเอียดสินค้า</a>
+                <button class="btn btn-primary">
+                  <i class="fa fa-shopping-cart"></i><span aria-hidden="true" ng-click="vm.addToCart(product)">เพิ่มตะกร้าสินค้า</span>
+                </button>
               </p>
             </div><!-- end text -->
           </div><!-- end product -->

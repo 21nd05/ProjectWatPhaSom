@@ -18,9 +18,9 @@
       <p class="price"><strong>Price</strong>: {{vm.product.netPrice | number}}</p>
 
     </div><!-- end text -->
-    <p class="buttons"  ng-click="vm.addToCart(product)">
-      <a  class="btn btn-primary"><i class="fa fa-shopping-cart"></i>เพิ่มในตะกร้า</a>
-    </p>
+    <button class="btn btn-primary">
+      <i class="fa fa-shopping-cart"></i><span aria-hidden="true" ng-click="vm.addToCart(product)">เพิ่มตะกร้าสินค้า</span>
+    </button>
     <!--<a><span aria-hidden="true" ng-click="vm.addToCart(product)">addProduct</span></a>-->
   </div>
 

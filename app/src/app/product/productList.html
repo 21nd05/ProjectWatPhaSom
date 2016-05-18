@@ -1,5 +1,3 @@
-<div ng-include src="'app/security/login.html'"></div>
-<div ng-include src="'app/component/leftnav.html'"></div>
 <div class="alert alert-success alert-dismissible" role="alert" ng-show="addSuccess">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span></button>
@@ -16,27 +14,33 @@
   <strong>Success!</strong> Success delete the product
 </div>
 <div cg-busy="{promise:vm.queryPromise,message:'Loading',backdrop:true,minDuration:1000}">
-  <div class="panel panel-default">
+  <div class="panel panel-default" >
     <!-- Default panel contents -->
-    <div class="panel-heading">Products</div>
-    <div class="panel-body">
-      <div class="col-lg-4">
-      </div>
-      <div class="col-lg-6">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="name..." ng-model="name"/>
-                <span class="input-group-btn">
-                    <button class="btn btn-default" type="button" ng-click="vm.searchProduct(name)">Search</button>
-                </span>
+    <div class="panel-body" >
+      <!-- Serch bar by Little Pan -->
+      <div class="row">
+        <div class="col-md-8">
+          สินค้าทั้งหมด
         </div>
-        <!-- /input-group -->
+        <div class="col-md-4">
+          <div class=" navbar-collapse collapse right">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search" ng-model="name">
+              <span class="input-group-btn"> <button type="submit" class="btn btn-primary"
+                                                     ng-click="vm.searchUser(name)"><i class="fa fa-search"></i>
+              </button></span>
+            </div>
+          </div>
+        </div>
       </div>
-      <!-- /.col-lg-6 -->
     </div>
+    <!-- end search bar -- >
+        <!-- /.col-lg-6 -->
+
 
 
     <!-- Table -->
-    <table class="table table-hover">
+    <table class="table table-hover" >
       <tr>
         <th>#</th>
         <th translate>listProduct.name</th>
@@ -49,7 +53,7 @@
         <th translate ng-show="hasRole('user')">listProduct.addToCart</th>
 
       </tr>
-      <tr ng-repeat="product in vm.products | filter:name ">
+      <tr ng-repeat="product in vm.products | filter:name">
         <td>{{$index+1}}</td>
         <td><a ng-href="#/productDetail/{{product.id}}" ng-click="vm.editProduct($flow)">{{product.name}}</a></td>
         <td>{{product.description}}</td>
@@ -71,16 +75,7 @@
         <td class="text-center" ng-show="hasRole('user')"><a><span aria-hidden="true" ng-click="vm.addToCart(product)">addProduct</span></a>
         </td>
       </tr>
-      <tr>
-        <td></td>
-        <td><strong translate>listProduct.total</strong></td>
-        <td></td>
-        <td class="text-right">{{totalNetPrice | number}}</td>
-        <td></td>
-        <td></td>
-        <td></td>
 
-      </tr>
     </table>
   </div>
 </div>
