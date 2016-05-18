@@ -38,7 +38,9 @@
         <td>{{user.lastName}}</td>
         <td>{{user.email}}</td>
         <td>
-          <div ng-repeat="role in user.roles">{{role.roleName}}</div>
+          <div ng-repeat="role in user.roles">
+            <a href="#/editUser/{{user.id}}" ng-click="vm.changeRole()" > {{role.roleName}}</a>
+          </div>
         </td>
       </tr>
     </table>

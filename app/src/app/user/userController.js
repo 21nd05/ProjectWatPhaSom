@@ -7,7 +7,8 @@
   angular
     .module('app')
     .controller('listUserController', listUserController)
-    .controller('registerController', registerController);
+    .controller('registerController', registerController)
+    .controller('editUserController', editUserController);
 
   /** @ngInject */
   function listUserController(userService, queryUserService) {
@@ -31,11 +32,47 @@
     vm.addUser = true;
     vm.editUser = false;
     vm.register = function () {
-      userService.save(vm.user,function(){
+      userService.save(vm.user, function () {
         $rootScope.addSuccess = true;
         $location.path("userList");
       });
     };
 
   }
+
+  /** @ngInject */
+  function editUserController($http, $location, $rootScope, userService, $route) {
+    var vm = this;
+    vm.addPerson = false;
+    vm.editPerson = true;
+    var id = $routeParams.id;
+    userService.get({id: id},
+      // success function
+      function (data) {
+        vm.user = data;
+      }
+    );
+
+    vm.changeRole = function () {  //$http.put("/product", $scope.product).then(function () {
+      productService.update({id: vm.user.id}, vm.user, function () {
+        var userid = vm.user.id;
+        $rootScope.editSuccess = true;
+        $location.path("listProduct");
+        $route.reload();
+        vm.apply();
+      });
+    };
+
+    vm.deleteImage = function (id) {
+      var answer = confirm("Do you want to delete the image?");
+      if (answer) {
+        $http.delete("http://localhost:8080/productImage/remove?imageid=" + id + "&productid=" + vm.product.id).success(function (data) {
+          vm.product = data;
+        });
+      }
+    }
+  };
+
 })();
+
+

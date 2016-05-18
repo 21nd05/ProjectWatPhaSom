@@ -73,7 +73,7 @@ public class DatabaseInitializationBean implements InitializingBean {
         Set<Role> roles = new HashSet<>();
         roles.add(adminRole);
         admin.setRoles(roles);
-        Address adminAddress = new Address("99/3","-","4","Sutep","Mueng", "CNX","50200");
+        Address adminAddress = new Address("99/3","-","4","Sutep","Mueng", "CNX","50200",admin);
         Set<Address> addresses1 = new HashSet<>();
         addresses1.add(adminAddress);
         admin.setAddresses(addresses1);
