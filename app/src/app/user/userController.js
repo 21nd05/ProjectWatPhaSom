@@ -41,8 +41,15 @@
   }
 
   /** @ngInject */
+<<<<<<< HEAD
   function editUserController($route, $routeParams, $location, $rootScope, userService, $http) {
     var vm = this;
+=======
+  function editUserController($http, $location, $rootScope, userService, $route,$routeParams) {
+    var vm = this;
+    vm.addPerson = false;
+    vm.editPerson = true;
+>>>>>>> master
     var id = $routeParams.id;
     userService.get({id: id},
       // success function
@@ -51,6 +58,7 @@
       }
     );
 
+<<<<<<< HEAD
    /* vm.editProduct = function (flowFiles) {  //$http.put("/product", $scope.product).then(function () {
       productService.update({id: vm.product.id}, vm.product, function () {
         var productid = vm.product.id;
@@ -67,4 +75,20 @@
       });
     };*/
   }
+=======
+    vm.changeRole = function () {  //$http.put("/product", $scope.product).then(function () {
+      userService.update({id: vm.user.id}, vm.user, function () {
+        var userid = vm.user.id;
+        $rootScope.editSuccess = true;
+        $location.path("listUser");
+        $route.reload();
+        vm.apply();
+      });
+    };
+
+  };
+
+>>>>>>> master
 })();
+
+

@@ -53,7 +53,11 @@
       controller: 'listUserController',
       controllerAs: 'vm'
     })
+<<<<<<< HEAD
       .when('/editRole/:id',{
+=======
+      .when('/editUser/:id',{
+>>>>>>> master
         templateUrl: 'app/user/userDetail.html',
         controller: 'editUserController',
         controllerAs: 'vm'

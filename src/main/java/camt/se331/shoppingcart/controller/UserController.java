@@ -1,12 +1,15 @@
 package camt.se331.shoppingcart.controller;
 
+import camt.se331.shoppingcart.entity.Role;
 import camt.se331.shoppingcart.entity.User;
 import camt.se331.shoppingcart.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by pan on 5/14/2016.
@@ -30,6 +33,18 @@ public class UserController {
         return userService.getUser(id);
     }
 
+<<<<<<< HEAD
+=======
+    @RequestMapping(value = "customer/{id}",method = RequestMethod.PUT)
+    public  User changeRole(@PathVariable("id") Long id) {
+        User user  = userService.getUser(id);
+        Role customerRole = new Role("Wholesale Customer");
+        Set<Role> roles = new HashSet<>();
+        roles.add(customerRole);
+        user.setRoles(roles);
+        return userService.updaterUser(user);
+    }
+>>>>>>> master
 
     @RequestMapping(value = "customer", method = RequestMethod.POST)
     public @ResponseBody
