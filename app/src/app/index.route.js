@@ -53,6 +53,11 @@
       controller: 'listUserController',
       controllerAs: 'vm'
     })
+      .when('/editRole/:id',{
+        templateUrl: 'app/user/userDetail.html',
+        controller: 'editUserController',
+        controllerAs: 'vm'
+      })
       .otherwise({
         redirectTo: '/index'
       });

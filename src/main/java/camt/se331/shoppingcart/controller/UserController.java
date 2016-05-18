@@ -25,6 +25,11 @@ public class UserController {
     @RequestMapping(value = "getUser",method = RequestMethod.GET)
     public  List<User> findUserByUsername (@RequestParam("name")String name){return userService.getUsersByName(name);}
 
+    @RequestMapping(value = "customer/{id}",method = RequestMethod.GET)
+    public  User getUser(@PathVariable("id") Long id){
+        return userService.getUser(id);
+    }
+
 
     @RequestMapping(value = "customer", method = RequestMethod.POST)
     public @ResponseBody
