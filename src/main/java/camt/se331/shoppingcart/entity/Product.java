@@ -18,16 +18,18 @@ public class Product implements Comparable{
     String name;
     String description;
     Double totalPrice;
+    Double wholesalePrice;
 
     @OneToMany(fetch = FetchType.EAGER)
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
     Set<Image> images = new HashSet<>();
 
-    public Product(Long id,String name, String description, Double totalPrice, Image image) {
+    public Product(Long id,String name, String description, Double totalPrice,Double wholesalePrice, Image image) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.totalPrice = totalPrice;
+        this.wholesalePrice = wholesalePrice;
         this.images.add(image) ;
     }
 
@@ -48,6 +50,11 @@ public class Product implements Comparable{
     public void setId(Long id) {
         this.id = id;
     }
+
+    public Double getWholesalePrice() {return wholesalePrice;}
+
+    public void setWholesalePrice(Double wholesalePrice) {this.wholesalePrice = wholesalePrice;}
+
 
     public Product(){
 
@@ -71,6 +78,7 @@ public class Product implements Comparable{
         if (id != null ? !id.equals(product.id) : product.id != null) return false;
         if (name != null ? !name.equals(product.name) : product.name != null) return false;
         if (totalPrice != null ? !totalPrice.equals(product.totalPrice) : product.totalPrice != null) return false;
+  // f    if (wholesalePrice != null ? !wholesalePrice.equals(product.wholesalePrice) : product.wholesalePrice != null) return false;
 
         return true;
     }
@@ -80,15 +88,17 @@ public class Product implements Comparable{
         int result = name != null ? name.hashCode() : 0;
         result = 31 * result + (description != null ? description.hashCode() : 0);
         result = 31 * result + (totalPrice != null ? totalPrice.hashCode() : 0);
+ //       result = 31 * result + (wholesalePrice != null ? wholesalePrice.hashCode():0);
         result = 31 * result + (id != null ? id.hashCode() : 0);
         return result;
     }
 
-    public Product(Long id,String name, String description, Double price) {
+    public Product(Long id,String name, String description, Double price, Double wholesalePrice) {
         this.name = name;
         this.description = description;
         this.totalPrice = price;
         this.id = id;
+        this.wholesalePrice = wholesalePrice;
     }
 
     public String getName() {

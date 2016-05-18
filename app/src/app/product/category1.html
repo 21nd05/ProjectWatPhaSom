@@ -18,10 +18,17 @@
             </div>
 
             <div class="text">
-              <h3><a href="detail.html">{{product.name}}</a></h3>
+              <h3>{{product.name}}</h3>
               <p class="price">{{product.description}}</p>
-              <p class="price">{{product.netPrice | number}} Bath</p>
-              <p class="buttons"  ng-show="hasRole('user')">
+              <p class="price" ng-show="hasRole('Retail customer')">{{product.netPrice | number}} Bath</p>
+              <p class="price" ng-show="hasRole('Wholesale customer')">{{product.wholesalePrice | number}} Bath</p>
+              <p class="buttons" ng-show="hasRole('Retail customer')">
+                <a href="#/productDetail/{{product.id}}" class="btn btn-primary">รายละเอียดสินค้า</a>
+                <button class="btn btn-primary">
+                  <i class="fa fa-shopping-cart"></i><span aria-hidden="true" ng-click="vm.addToCart(product)">เพิ่มตะกร้าสินค้า</span>
+                </button>
+              </p>
+              <p class="buttons" ng-show="hasRole('Wholesale customer')">
                 <a href="#/productDetail/{{product.id}}" class="btn btn-primary">รายละเอียดสินค้า</a>
                 <button class="btn btn-primary">
                   <i class="fa fa-shopping-cart"></i><span aria-hidden="true" ng-click="vm.addToCart(product)">เพิ่มตะกร้าสินค้า</span>

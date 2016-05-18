@@ -42,11 +42,13 @@ public class ProductController {
     public  Product edit(@PathVariable("id") Long id,
                          @RequestParam("name") String name,
                          @RequestParam("description") String description,
-                         @RequestParam("totalPrice") Double totalPrice){
+                         @RequestParam("totalPrice") Double totalPrice,
+                         @RequestParam("wholesalePrice") Double wholesalePrice){
         Product product = productService.getProduct(id);
         product.setName(name);
         product.setDescription(description);
         product.setTotalPrice(totalPrice);
+        product.setWholesalePrice(wholesalePrice);
         return productService.updateProduct(product);
     }
 

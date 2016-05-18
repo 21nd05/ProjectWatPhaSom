@@ -45,9 +45,9 @@
 
           </div>
           <div class="form-group">
-            <label for="productprice">price :</label>
+            <label for="productprice">retail price :</label>
             <input ng-model="vm.product.totalPrice" name="productprice" class="form-control" id="productprice"
-                   placeholder="price" type="number" required/>
+                   placeholder="retail price" type="number" required/>
 
             <div class="alert alert-danger" role="alert" ng-show="vm.editform.productprice.$error.required">
               <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
@@ -55,6 +55,23 @@
               Price is Required!
             </div>
             <div class="alert alert-danger" role="alert" ng-show="vm.editform.productprice.$error.number">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              <span class="sr-only">Error:</span>
+              Enter the number!!
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="wholesalePrice">wholesale price :</label>
+            <input ng-model="vm.product.wholesalePrice" name="wholesalePrice" class="form-control" id="wholesalePrice"
+                   placeholder="wholesale price" type="number" required/>
+
+            <div class="alert alert-danger" role="alert" ng-show="vm.editform.wholesalePrice.$error.required">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              <span class="sr-only">Error:</span>
+              Price is Required!
+            </div>
+            <div class="alert alert-danger" role="alert" ng-show="vm.editform.wholesalePrice.$error.number">
               <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
               <span class="sr-only">Error:</span>
               Enter the number!!

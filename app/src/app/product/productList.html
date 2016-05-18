@@ -46,7 +46,8 @@
         <th translate>listProduct.name</th>
         <th translate>listProduct.description</th>
 
-        <th class="text-center" translate>listProduct.price</th>
+        <th class="text-center" translate>listProduct.retailprice</th>
+        <th class="text-center" translate>listProduct.wholesaleprice</th>
         <th translate>listProduct.picture</th>
         <th translate ng-show="hasRole('admin')">listProduct.edit</th>
         <th translate ng-show="hasRole('admin')">listProduct.delete</th>
@@ -58,7 +59,8 @@
         <td><a ng-href="#/productDetail/{{product.id}}" ng-click="vm.editProduct($flow)">{{product.name}}</a></td>
         <td>{{product.description}}</td>
 
-        <td class="text-center">{{product.netPrice | number}}</td>
+        <td class="text-center">{{product.totalPrice | number}}</td>
+        <td class="text-center">{{product.wholesalePrice | number}}</td>
         <td>
           <div ng-repeat="image in product.images">
             <img ng-src="data:{{image.contentType}};base64,{{image.content}}" class="thumbnail">
@@ -71,7 +73,6 @@
           <a ng-href="#/listProduct"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"
                 ng-click="vm.deleteProduct(product.id)"></span></a>
         </td>
-        <td class="text-center" ng-show="hasRole('user')">
         <td class="text-center" ng-show="hasRole('user')"><a><span aria-hidden="true" ng-click="vm.addToCart(product)">addProduct</span></a>
         </td>
       </tr>

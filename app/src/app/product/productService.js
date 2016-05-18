@@ -14,7 +14,8 @@
           params:{
             name:'@name',
             description: '@description',
-            totalPrice:'@totalPrice'
+            totalPrice:'@totalPrice',
+            wholesalePrice:'@wholesalePrice'
           }
         }});
   }

@@ -16,7 +16,7 @@
         <li><a href="#/index">หน้าหลัก</a></li>
         <li><a href="#/addProduct">เพิ่มสินค้า</a></li>
         <li><a href="#/listProduct">จัดการสินค้า</a></li>
-        <li><a href="#/">ข้อมูลลุกค้า</a></li>
+        <li><a href="#/userList">ข้อมูลลุกค้า</a></li>
       </ul>
 
   </div> <!--/.nav-collapse -->
@@ -26,23 +26,9 @@
   <div class="navbar-buttons" ng-hide="hasRole('admin')">
     <div class="navbar-collapse collapse right" id="basket-overview">
       <a href="#/shoppingCart" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">ตะกร้าสินค้า</span></a>
-    </div>
+
     <!--/.nav-collapse -->
 
-    <div class="navbar-collapse collapse right">
-      <button type="button" class="btn navbar-btn btn-primary" data-toggle="collapse" data-target="#search">
-        <i class="fa fa-search"></i>
-      </button>
-    </div>
-
-    <div class="collapse clearfix" id="search">
-      <form class="navbar-form" role="search">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search">
-          <span class="input-group-btn"> <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button></span>
-        </div>
-      </form>
-    </div>
-
   </div> <!-- end nav-collapse -->
+
 </div> <!-- end container -->
