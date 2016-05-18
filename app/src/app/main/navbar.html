@@ -6,14 +6,24 @@
 
   <!--/.navbar-header -->
   <div class="navbar-collapse collapse" id="navigation">
-    <ul class="nav navbar-nav navbar-left">
+    <ul class="nav navbar-nav navbar-left" ng-hide="hasRole('admin')">
       <li><a href="#/index">หน้าหลัก</a></li>
       <li><a href="#/product">สินค้า</a></li>
       <li><a href="#/listProduct">วิธีสั่งซื้อสินค้า</a></li>
     </ul>
+    <!--/.navbar-header for admin -->
+      <ul class="nav navbar-nav navbar-left" ng-show="hasRole('admin')">
+        <li><a href="#/index">หน้าหลัก</a></li>
+        <li><a href="#/addProduct">เพิ่มสินค้า</a></li>
+        <li><a href="#/listProduct">จัดการสินค้า</a></li>
+        <li><a href="#/">ข้อมูลลุกค้า</a></li>
+      </ul>
+
   </div> <!--/.nav-collapse -->
 
-  <div class="navbar-buttons">
+
+
+  <div class="navbar-buttons" ng-hide="hasRole('admin')">
     <div class="navbar-collapse collapse right" id="basket-overview">
       <a href="basket.html" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">ตะกร้าสินค้า</span></a>
     </div>
