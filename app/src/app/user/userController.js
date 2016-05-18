@@ -57,20 +57,12 @@
       productService.update({id: vm.user.id}, vm.user, function () {
         var userid = vm.user.id;
         $rootScope.editSuccess = true;
-        $location.path("listProduct");
+        $location.path("userList");
         $route.reload();
         vm.apply();
       });
     };
 
-    vm.deleteImage = function (id) {
-      var answer = confirm("Do you want to delete the image?");
-      if (answer) {
-        $http.delete("http://localhost:8080/productImage/remove?imageid=" + id + "&productid=" + vm.product.id).success(function (data) {
-          vm.product = data;
-        });
-      }
-    }
   };
 
 })();

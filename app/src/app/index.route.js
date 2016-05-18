@@ -54,7 +54,7 @@
       controllerAs: 'vm'
     })
       .when('/editUser',{
-        templateUrl: 'app/user/userList.html',
+
         controller: 'editUserController',
         controllerAs: 'vm'
       })
