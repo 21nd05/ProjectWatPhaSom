@@ -41,15 +41,8 @@
   }
 
   /** @ngInject */
-<<<<<<< HEAD
   function editUserController($route, $routeParams, $location, $rootScope, userService, $http) {
     var vm = this;
-=======
-  function editUserController($http, $location, $rootScope, userService, $route,$routeParams) {
-    var vm = this;
-    vm.addPerson = false;
-    vm.editPerson = true;
->>>>>>> master
     var id = $routeParams.id;
     userService.get({id: id},
       // success function
@@ -58,37 +51,20 @@
       }
     );
 
-<<<<<<< HEAD
-   /* vm.editProduct = function (flowFiles) {  //$http.put("/product", $scope.product).then(function () {
-      productService.update({id: vm.product.id}, vm.product, function () {
-        var productid = vm.product.id;
-        // set location
-        flowFiles.opts.target = 'http://localhost:8080/productImage/add';
-        flowFiles.opts.testChunks = false;
-        flowFiles.opts.query = {productid: productid};
-        flowFiles.upload();
+    /* vm.editProduct = function (flowFiles) {  //$http.put("/product", $scope.product).then(function () {
+     productService.update({id: vm.product.id}, vm.product, function () {
+     var productid = vm.product.id;
+     // set location
+     flowFiles.opts.target = 'http://localhost:8080/productImage/add';
+     flowFiles.opts.testChunks = false;
+     flowFiles.opts.query = {productid: productid};
+     flowFiles.upload();
 
-        $rootScope.editSuccess = true;
-        $location.path("listProduct");
-        $route.reload();
-        vm.apply();
-      });
-    };*/
+     $rootScope.editSuccess = true;
+     $location.path("listProduct");
+     $route.reload();
+     vm.apply();
+     });
+     };*/
   }
-=======
-    vm.changeRole = function () {  //$http.put("/product", $scope.product).then(function () {
-      userService.update({id: vm.user.id}, vm.user, function () {
-        var userid = vm.user.id;
-        $rootScope.editSuccess = true;
-        $location.path("listUser");
-        $route.reload();
-        vm.apply();
-      });
-    };
-
-  };
-
->>>>>>> master
 })();
-
-

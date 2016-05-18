@@ -19,9 +19,4 @@ public interface UserService {
     User addUser(User user);
 
     User getUser(Long id);
-<<<<<<< HEAD
-=======
-
-    User updaterUser(User user);
->>>>>>> master
 }

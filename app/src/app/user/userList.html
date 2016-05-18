@@ -38,13 +38,7 @@
         <td>{{user.lastName}}</td>
         <td>{{user.email}}</td>
         <td>
-<<<<<<< HEAD
-         <a ng-href="#/editRole/{{user.id}}"><div ng-repeat="role in user.roles">{{role.roleName}}</div></a>
-=======
-          <div ng-repeat="role in user.roles">
-            <a href="#/editUser/{{user.id}}" ng-click="vm.changeRole()" > {{role.roleName}}</a>
-          </div>
->>>>>>> master
+          <a ng-href="#/editRole/{{user.id}}"><div ng-repeat="role in user.roles">{{role.roleName}}</div></a>
         </td>
       </tr>
     </table>
