@@ -1,17 +1,24 @@
 <div class="container">
-  <div class="col-md-6 offer" ></div>
-  <div class="col-md-6" >
+  <div class="col-md-6 offer"></div>
+  <div class="col-md-6">
     <ul class="menu">
-      <li><a href="#" data-toggle="modal" data-target="#login-modal">เข้าสู่ระบบ</a></li>
-      <li><a href="register.html">สมัครสมาชิก</a></li>
-      <li><a href="#" >EN </a></li>
-      <li><a href="#" >TH </a></li>
+      <li><a href="#" data-toggle="modal" data-target="#login-modal" ng-hide="user">เข้าสู่ระบบ</a>
+        <a href="" ng-show="user">{{ user.name }}</a>
+      </li>
+      <li ng-hide="user"><a href="register.html">สมัครสมาชิก</a></li>
+      <li ng-show="user">
+        <a href="#" ng-click="logout()">ออกจากระบบ</a>
+      </li>
+      <li><a href="#">EN </a></li>
+      <li><a href="#">TH </a></li>
     </ul>
   </div>
 </div>
 
+
 <!-- *** Login *** -->
-<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true" ng-controller="LoginController as login">
+<div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true"
+     ng-controller="LoginController as login" ng-hide="user">
   <div class="modal-dialog modal-sm">
 
     <div class="modal-content">
@@ -20,33 +27,27 @@
         <h4 class="modal-title" id="Login">เข้าสู่ระบบ</h4>
       </div>
       <div class="modal-body">
-        <form ng-hide = "user">
+        <form>
           <div class="form-group">
-            <input id="username" ng-model ="login.username" type="text" class="form-control"/>
+            <input id="username" ng-model="login.username" type="text" class="form-control"/>
           </div>
           <div class="form-group">
-            <input id="password" ng-model ="login.password" type="password" class="form-control"/>
+            <input id="password" ng-model="login.password" type="password" class="form-control"/>
           </div>
 
-          <p class="text-center"><button class="btn btn-primary" type="submit" ng-click="login.login()"><i class="fa fa-sign-in"></i> เข้าสู่ระบบ </button></p>
+          <p class="text-center">
+            <button class="btn btn-primary" type="submit" ng-click="login.login()"><i class="fa fa-sign-in"></i>
+              เข้าสู่ระบบ
+            </button>
+          </p>
 
-              <div class="checkbox">
-                <p class="text-center">
-                  <input  type="checkbox" ng-model=" login.rememberMe"/> Remember me
-                </p>
+          <div class="checkbox">
+            <p class="text-center">
+              <input type="checkbox" ng-model=" login.rememberMe"/> Remember me
+            </p>
           </div>
         </form>
-        <form class="form-inline" ng-show="user">
-          <div class="H6 col-sm-5 col-sm-offset-3 text-right">
-            Hello !! {{user.name}}
-          </div>
 
-          <div class="form-group">
-            <div class="col-sm-3 ">
-              <input type="submit" value="Log Out" class="bth btn-primary" ng-click="logout()"/>
-            </div>
-          </div>
-        </form>
 
       </div>
     </div>
