@@ -41,7 +41,7 @@
   }
 
   /** @ngInject */
-  function editUserController($http, $location, $rootScope, userService, $route) {
+  function editUserController($http, $location, $rootScope, userService, $route,$routeParams) {
     var vm = this;
     vm.addPerson = false;
     vm.editPerson = true;
@@ -54,10 +54,10 @@
     );
 
     vm.changeRole = function () {  //$http.put("/product", $scope.product).then(function () {
-      productService.update({id: vm.user.id}, vm.user, function () {
+      userService.update({id: vm.user.id}, vm.user, function () {
         var userid = vm.user.id;
         $rootScope.editSuccess = true;
-        $location.path("userList");
+        $location.path("listUser");
         $route.reload();
         vm.apply();
       });

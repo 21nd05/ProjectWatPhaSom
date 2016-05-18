@@ -53,8 +53,8 @@
       controller: 'listUserController',
       controllerAs: 'vm'
     })
-      .when('/editUser',{
-
+      .when('/editUser/:id',{
+        templateUrl: 'app/user/userDetail.html',
         controller: 'editUserController',
         controllerAs: 'vm'
       })
