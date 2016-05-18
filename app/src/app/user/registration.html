@@ -1,0 +1,83 @@
+<div class="row-fluid">
+  <div class="row" ng-show="addPerson">
+    <h1>Add new product</h1>
+  </div>
+  <div class="row" ng-show="editPerson">
+    <h1>Edit Product</h1>
+  </div>
+  <div class="col-md-4">
+    <form name="editform" novalidate flow-init>
+      <div class="form-group">
+        <!-- Sidebar content-->
+        <label for="name">First Name :</label>
+        <input ng-model="vm.user.name" class="form-control" id="name" name="name" placeholder="First name" required/>
+
+        <div class="alert alert-danger" role="alert" ng-show="editform.name.$error.required">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span>
+          First name is Required!
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="lastName">Last Name :</label>
+        <input ng-model="vm.user.lastName" class="form-control" id="lastName"
+               placeholder="Last name" name="lastName" required/>
+
+        <div class="alert alert-danger" role="alert" ng-show="editform.lastName.$error.required">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span>
+          Last name is Required!
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email :</label>
+        <input ng-model="vm.user.email" name="email" class="form-control" id="email"
+               placeholder="E-mail" type="email" required/>
+
+        <div class="alert alert-danger" role="alert" ng-show="editform.email.$error.required">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span>
+          Email is Required!
+        </div>
+
+      </div>
+
+      <div class="form-group">
+        <label for="phonenumber">Phone Number :</label>
+        <input ng-model="vm.user.phonenumber" name="phonenumber" class="form-control" id="phonenumber"
+               placeholder="phonenumber" type="tel"/>
+        <div class="alert alert-danger" role="alert" ng-show="editform.productprice.$error.number">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span>
+          Enter the number!!
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="username">Phone Number :</label>
+        <input ng-model="vm.user.username" name="username" class="form-control" id="username"
+               placeholder="username" type="text" required/>
+        <div class="alert alert-danger" role="alert" ng-show="editform.username.$error.required">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span>
+          Username is Required!
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Phone Number :</label>
+        <input ng-model="vm.user.password" name="password" class="form-control" id="password"
+               placeholder="password" type="password" required/>
+        <div class="alert alert-danger" role="alert" ng-show="editform.password.$error.required">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">Error:</span>
+          Password is Required!
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-default" ng-click="vm.register()">Register</button>
+    </form>
+  </div>
+</div>

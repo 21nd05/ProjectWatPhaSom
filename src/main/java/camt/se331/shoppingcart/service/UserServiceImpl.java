@@ -1,5 +1,6 @@
 package camt.se331.shoppingcart.service;
 
+import camt.se331.shoppingcart.dao.UserDao;
 import camt.se331.shoppingcart.entity.ShoppingCart;
 import camt.se331.shoppingcart.entity.User;
 import camt.se331.shoppingcart.repository.ShoppingCartRepository;
@@ -20,6 +21,8 @@ public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
     @Autowired
     private ShoppingCartRepository shoppingCartRepository;
+    @Autowired
+    private UserDao userDao;
 
     @Override
     @Transactional
@@ -41,6 +44,21 @@ public class UserServiceImpl implements UserService {
     @Override
     public User login(String email, String password) {
         return null;
+    }
+
+    @Override
+    public List<User> getUsers() {
+        return userDao.findAll();
+    }
+
+    @Override
+    public List<User> getUsersByName(String name) {
+        return userDao.getUsersByName(name);
+    }
+
+    @Override
+    public User addUser(User user) {
+        return userDao.addUser(user);
     }
 
 

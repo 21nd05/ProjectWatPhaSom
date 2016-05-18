@@ -1,0 +1,46 @@
+<div cg-busy="{promise:vm.queryPromise,message:'Loading',backdrop:true,minDuration:1000}">
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">USER INFORMATION</div>
+    <div class="panel-body">
+
+      <!-- Serch bar by Little Pan -->
+      <div class="row">
+        <div class="col-md-8"></div>
+        <div class="col-md-4">
+          <div class=" navbar-collapse collapse right">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search" ng-model="name">
+              <span class="input-group-btn"> <button type="submit" class="btn btn-primary"
+                                                     ng-click="vm.searchUser(name)"><i class="fa fa-search"></i>
+              </button></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end search bar -- >
+
+    <!-- Table -->
+    <table class="table table-hover">
+      <tr>
+        <th>#</th>
+        <th translate>listUser.username</th>
+        <th translate>listUser.name</th>
+        <th translate>listUser.surname</th>
+        <th translate>listUser.email</th>
+        <th translate>listUser.role</th>
+      </tr>
+      <tr ng-repeat="user in vm.users | filter:name">
+        <td>{{$index+1}}</td>
+        <td>{{user.username}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.lastName}}</td>
+        <td>{{user.email}}</td>
+        <td>
+          <div ng-repeat="role in user.roles">{{role.roleName}}</div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

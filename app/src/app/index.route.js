@@ -48,6 +48,11 @@
       controller: 'editProductController',
       controllerAs: 'vm'
     })
+      .when('/userList',{
+      templateUrl: 'app/user/userList.html',
+      controller: 'listUserController',
+      controllerAs: 'vm'
+    })
       .otherwise({
         redirectTo: '/index'
       });
