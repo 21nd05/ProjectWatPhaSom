@@ -17,7 +17,7 @@
     "moment": "~2.10.6",
     "animate.css": "~3.4.0",
     "angular": "~1.5.3",
-
+    "bootstrap-sass": "~3.3.5",
     "angular-translate":"2.6.x",
     "angular-translate-loader-url":"2.6.x",
     "ng-flow":"~2",
