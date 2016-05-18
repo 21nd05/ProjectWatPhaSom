@@ -5,6 +5,7 @@
     .module('app')
     .config(config);
 
+
   /** @ngInject */
   function config($logProvider, toastrConfig) {
     // Enable log
