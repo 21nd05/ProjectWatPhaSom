@@ -6,7 +6,7 @@
 
   /** @ngInject */
   function UserService($resource) {
-    return $resource('/user/:action', {},
+    return $resource('http://localhost:8080/user/:action', {},
       {
         authenticate: {
           method: 'POST',

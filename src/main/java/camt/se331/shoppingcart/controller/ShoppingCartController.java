@@ -49,7 +49,6 @@ public class ShoppingCartController {
 
     @RequestMapping(value = "/addToCart/{id}", method = RequestMethod.POST)
     public ShoppingCart addProduct(@PathVariable("id") Long id,@RequestBody ShoppingCart shoppingCart, BindingResult bindingResult, Model model, HttpServletRequest httpServletRequest) {
-
         Product product = productService.getProduct(id);
         return shoppingCartService.addSelectedProduct(shoppingCart, product);
     }

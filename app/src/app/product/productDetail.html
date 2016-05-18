@@ -1,14 +1,28 @@
 <div cg-busy="{promise:vm.queryPromise,message:'Loading',backdrop:true,minDuration:1000}">
-<div class="row-fluid" >
-  <h1>Product Detail</h1>
-  <div>
-    <div ng-repeat="image in vm.product.images" class="text-center" >
-      <img ng-src="data:{{image.contentType}};base64,{{image.content}}" class="thumbnail">
+<div class="row-fluid">
 
+  <div class="row products">
+    <div class="col-md-5 col-sm-5" >
+      <div class="product" align="center">
+        <div class="flip-container" >
+          <div class="flipper" ng-repeat="image in vm.product.images" align="center">
+            <img ng-src="data:{{image.contentType}};base64,{{image.content}}" class="thumbnail">
+          </div>
+        </div>
+      </div><!-- end product -->
     </div>
-    <div><strong>Name:</strong> {{vm.product.name}}</div>
-    <div><strong>Description:</strong> {{vm.product.description}}</div>
-    <div><strong>Price:</strong> {{vm.product.netPrice | number}}</div>
+
+    <div class="text">
+      <h3>{{vm.product.name}}</h3>
+      <p class="price">{{vm.product.description}}</p>
+      <p class="price"><strong>Price</strong>: {{vm.product.netPrice | number}}</p>
+
+    </div><!-- end text -->
+    <p class="buttons"  ng-click="vm.addToCart(product)">
+      <a  class="btn btn-primary"><i class="fa fa-shopping-cart"></i>เพิ่มในตะกร้า</a>
+    </p>
+    <!--<a><span aria-hidden="true" ng-click="vm.addToCart(product)">addProduct</span></a>-->
+    <a href="#/shoppingCart/{{product.id}}" class="btn btn-default">รายละเอียดสินค้า</a>
   </div>
 
 </div>

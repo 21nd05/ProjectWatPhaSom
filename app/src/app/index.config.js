@@ -35,6 +35,7 @@
   }
 
 
+
   /** @ngInject */
   function configCompilerProvider($compileProvider) {
     $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|chrome-extension):/);
