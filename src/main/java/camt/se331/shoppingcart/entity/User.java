@@ -20,8 +20,10 @@ public class User {
     private Long id;
     private String username;
     private String name;
+    private String lastName;
     private String email;
     private String password;
+    private String phoneNumber;
     private Date dob;
     @ManyToMany(fetch= FetchType.EAGER)
     // Cascade and CascadeType must be the org.hibernate.annotation
@@ -32,7 +34,49 @@ public class User {
     @Cascade(CascadeType.ALL)
     @JsonManagedReference
     private Set<ShoppingCart> shoppingCarts;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "customer")
+    @Cascade(CascadeType.ALL)
+    private Set<Address> addresses = new HashSet<>();
+
     public User() {
+    }
+
+    public User(String username, String name, String lastName, String email, String password, String phoneNumber, Set<Role> roles, Set<Address> addresses) {
+        this.username = username;
+        this.name = name;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
+        this.roles = roles;
+        this.addresses = addresses;
+    }
+
+
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public Set<Address> getAddresses() {
+        return addresses;
+    }
+
+    public void setAddresses(Set<Address> addresses) {
+        this.addresses = addresses;
     }
 
     public Set<ShoppingCart> getShoppingCarts() {

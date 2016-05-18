@@ -59,21 +59,29 @@ public class DatabaseInitializationBean implements InitializingBean {
 
         // add user
         Role adminRole = new Role("admin");
-        Role userRole = new Role("user");
-        Role userRole2 = new Role("user");
+        Role userRole = new Role("Retail customer");
+        Role userRole2 = new Role("Wholesale customer");
 
 
         User admin = new User();
-        admin.setName("admin");
+        admin.setName("Suchada");
+        admin.setLastName("Klomkaew");
+        admin.setPhoneNumber("0812345678");
         admin.setUsername("admin");
-        admin.setEmail("admin@yahoo.com");
+        admin.setEmail("panpan.littlpan@gmail.com");
         admin.setPassword("123456");
         Set<Role> roles = new HashSet<>();
         roles.add(adminRole);
         admin.setRoles(roles);
+        Address adminAddress = new Address("99/3","-","4","Sutep","Mueng", "CNX","50200");
+        Set<Address> addresses1 = new HashSet<>();
+        addresses1.add(adminAddress);
+        admin.setAddresses(addresses1);
 
         User user = new User();
-        user.setName("user");
+        user.setName("Mojune");
+        user.setLastName("Pednoi");
+        user.setPhoneNumber("0823456789");
         user.setUsername("user");
         user.setEmail("user@yahoo.com");
         user.setPassword("123456");
@@ -81,19 +89,19 @@ public class DatabaseInitializationBean implements InitializingBean {
         roles2.add(userRole);
         user.setRoles(roles2);
 
-        User user2 = new User();
-        user2.setName("user2");
-        user2.setUsername("user2");
-        user2.setEmail("user@yahoo.com");
-        user2.setPassword("123456");
+        User foreignUser = new User();
+        foreignUser.setName("Nepjune");
+        foreignUser.setLastName("Baribooo");
+        foreignUser.setPhoneNumber("084567890");
+        foreignUser.setUsername("foreign");
+        foreignUser.setEmail("foreign@yahoo.com");
+        foreignUser.setPassword("123456");
         Set<Role> roles3 = new HashSet<>();
         roles3.add(userRole2);
-        user2.setRoles(roles3);
+        foreignUser.setRoles(roles3);
         userRepository.save(admin);
         userRepository.save(user);
-        userRepository.save(user2);
-        admin.setRoles(roles);
-        user.setRoles(roles2);
-        user2.setRoles(roles3);
+        userRepository.save(foreignUser);
+
     }
 }
