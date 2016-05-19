@@ -1,82 +1,82 @@
 <div class="alert alert-success alert-dismissible" role="alert" ng-show="addSuccess">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span></button>
-  <strong>Success!</strong> Success adding a new product
+  <strong>Success!</strong> เพิ่มสินค้าเรียบร้อยแล้ว
 </div>
 <div class="alert alert-success alert-dismissible" role="alert" ng-show="editSuccess">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span></button>
-  <strong>Success!</strong> Success edit the product
+  <strong>Success!</strong> ปรับปรุงข้อมูลสินค้าเรียบร้อยแล้ว
 </div>
 <div class="alert alert-success alert-dismissible" role="alert" ng-show="deleteSuccess">
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span></button>
-  <strong>Success!</strong> Success delete the product
+  <strong>Success!</strong> ลบสินค้าเรียบร้อยแล้ว
 </div>
-<div cg-busy="{promise:vm.queryPromise,message:'Loading',backdrop:true,minDuration:1000}">
-  <div class="panel panel-default" >
-    <!-- Default panel contents -->
-    <div class="panel-body" >
-      <!-- Serch bar by Little Pan -->
-      <div class="row">
-        <div class="col-md-8">
-          สินค้าทั้งหมด
-        </div>
-        <div class="col-md-4">
-          <div class=" navbar-collapse collapse right">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search" ng-model="name">
-              <span class="input-group-btn"> <button type="submit" class="btn btn-primary"
-                                                     ng-click="vm.searchUser(name)"><i class="fa fa-search"></i>
+<div class="container">
+  <div class="box">
+    <div cg-busy="{promise:vm.queryPromise,message:'Loading',backdrop:true,minDuration:1000}">
+      <div class="panel panel-default" >
+        <!-- Default panel contents -->
+        <div class="panel-body" >
+          <!-- Serch bar by Little Pan -->
+          <div class="row">
+            <div class="col-md-8">
+            </div>
+            <div class="col-md-4">
+              <div class=" navbar-collapse collapse right">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Search" ng-model="name">
+              <span class="input-group-btn"> <button type="submit" class="btn btn-primary" ng-click="vm.searchUser(name)"><i class="fa fa-search"></i>
               </button></span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+        <!-- end search bar -- >
+        <!-- Table -->
+        <table class="table table-hover" >
+          <thead>
+          <tr>
+            <th>#</th>
+            <th translate>listProduct.name</th>
+            <th translate width="300px">listProduct.description</th>
+
+            <th class="text-center" translate>listProduct.retailprice</th>
+            <th class="text-center" translate>listProduct.wholesaleprice</th>
+            <th translate>listProduct.picture</th>
+            <th translate ng-show="hasRole('admin')">listProduct.edit</th>
+            <th translate ng-show="hasRole('admin')">listProduct.delete</th>
+            <th translate ng-show="hasRole('user')">listProduct.addToCart</th>
+          </tr>
+          </thead>
+          <tr ng-repeat="product in vm.products | filter:name">
+            <td>{{$index+1}}</td>
+            <td><a ng-href="#/productDetail/{{product.id}}" ng-click="vm.editProduct($flow)">{{product.name}}</a></td>
+            <td width="300px" align="justify">{{product.description}}</td>
+
+            <td class="text-center">{{product.totalPrice | number}}</td>
+            <td class="text-center">{{product.wholesalePrice | number}}</td>
+            <td>
+              <div ng-repeat="image in product.images">
+                <img ng-src="data:{{image.contentType}};base64,{{image.content}}" class="thumbnail">
+              </div>
+            </td>
+            <td class="text-center" ng-show="hasRole('admin')">
+              <a ng-href="#/editProduct/{{product.id}}"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+            </td>
+            <td class="text-center" ng-show="hasRole('admin')">
+              <a ng-href="#/listProduct"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"
+                                               ng-click="vm.deleteProduct(product.id)"></span></a>
+            </td>
+            <td class="text-center" ng-show="hasRole('user')"><a><span aria-hidden="true" ng-click="vm.addToCart(product)">addProduct</span></a>
+            </td>
+          </tr>
+
+        </table>
       </div>
     </div>
-    <!-- end search bar -- >
-        <!-- /.col-lg-6 -->
-
-
-
-    <!-- Table -->
-    <table class="table table-hover" >
-      <tr>
-        <th>#</th>
-        <th translate>listProduct.name</th>
-        <th translate>listProduct.description</th>
-
-        <th class="text-center" translate>listProduct.retailprice</th>
-        <th class="text-center" translate>listProduct.wholesaleprice</th>
-        <th translate>listProduct.picture</th>
-        <th translate ng-show="hasRole('admin')">listProduct.edit</th>
-        <th translate ng-show="hasRole('admin')">listProduct.delete</th>
-        <th translate ng-show="hasRole('user')">listProduct.addToCart</th>
-
-      </tr>
-      <tr ng-repeat="product in vm.products | filter:name">
-        <td>{{$index+1}}</td>
-        <td><a ng-href="#/productDetail/{{product.id}}" ng-click="vm.editProduct($flow)">{{product.name}}</a></td>
-        <td>{{product.description}}</td>
-
-        <td class="text-center">{{product.totalPrice | number}}</td>
-        <td class="text-center">{{product.wholesalePrice | number}}</td>
-        <td>
-          <div ng-repeat="image in product.images">
-            <img ng-src="data:{{image.contentType}};base64,{{image.content}}" class="thumbnail">
-          </div>
-        </td>
-        <td class="text-center" ng-show="hasRole('admin')">
-          <a ng-href="#/editProduct/{{product.id}}"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-        </td>
-        <td class="text-center" ng-show="hasRole('admin')">
-          <a ng-href="#/listProduct"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"
-                ng-click="vm.deleteProduct(product.id)"></span></a>
-        </td>
-        <td class="text-center" ng-show="hasRole('user')"><a><span aria-hidden="true" ng-click="vm.addToCart(product)">addProduct</span></a>
-        </td>
-      </tr>
-
-    </table>
   </div>
 </div>
+

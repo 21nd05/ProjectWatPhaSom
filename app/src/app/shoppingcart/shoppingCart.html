@@ -1,31 +1,32 @@
 <div class="container">
-  <div class="panel panel-default box">
+  <div class="box">
     <div class="panel-heading">
       <div class="alert alert-success alert-dismissible" role="alert" ng-show="cartUpdateSuccess">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span></button>
-        <strong>Success!</strong> Success update the product
+        <strong>เรียบร้อย!</strong>
       </div>
     </div>
-    <div class="panel-body">
+    <div class="panel-body row">
+      <div class="col-md-2"></div>
       <form name="editform" novalidate>
-        <div class="form-group">
+        <div class="form-group col-md-8">
           <!-- Table -->
           <table class="table table-hover">
             <thead>
             <tr>
               <th></th>
-              <th translate width="150px">listProduct.name</th>
-              <th class="text-center" translate>listProduct.amount</th>
+              <th translate >listProduct.name</th>
+              <th class="text-center" translate width="100px">listProduct.amount</th>
               <th class="text-center" translate>ราคาต่อหน่วย</th>
               <th class="text-center" translate>listProduct.price</th>
-              <th class="text-center" translate>listProduct.remove</th>
+              <th class="text-center" translate></th>
             </tr>
             </thead>
             <tr ng-repeat="selectedProduct in vm.cart.selectedProducts">
               <td>{{$index+1}}</td>
               <td>{{selectedProduct.product.name}}</td>
-              <td><input ng-model="selectedProduct.amount" class="form-control text-right" id="selectedproductamount"
+              <td width="100px"><input ng-model="selectedProduct.amount" class="form-control text-right" id="selectedproductamount"
                          placeholder="amount" name="productdescription" required/></td>
               <td class="text-center">{{selectedProduct.product.netPrice | number:2}}</td>
               <td class="text-center">{{vm.totalEach($index) |number:2}}</td>
@@ -52,6 +53,5 @@
         </div>
       </form>
     </div>
-    <div class="panel-footer"></div>
   </div>
 </div>
