@@ -78,7 +78,7 @@ public class Product implements Comparable{
         if (id != null ? !id.equals(product.id) : product.id != null) return false;
         if (name != null ? !name.equals(product.name) : product.name != null) return false;
         if (totalPrice != null ? !totalPrice.equals(product.totalPrice) : product.totalPrice != null) return false;
-  // f    if (wholesalePrice != null ? !wholesalePrice.equals(product.wholesalePrice) : product.wholesalePrice != null) return false;
+        if (wholesalePrice != null ? !wholesalePrice.equals(product.wholesalePrice) : product.wholesalePrice != null) return false;
 
         return true;
     }
@@ -88,7 +88,7 @@ public class Product implements Comparable{
         int result = name != null ? name.hashCode() : 0;
         result = 31 * result + (description != null ? description.hashCode() : 0);
         result = 31 * result + (totalPrice != null ? totalPrice.hashCode() : 0);
- //       result = 31 * result + (wholesalePrice != null ? wholesalePrice.hashCode():0);
+        result = 31 * result + (wholesalePrice != null ? wholesalePrice.hashCode():0);
         result = 31 * result + (id != null ? id.hashCode() : 0);
         return result;
     }
@@ -100,6 +100,14 @@ public class Product implements Comparable{
         this.id = id;
         this.wholesalePrice = wholesalePrice;
     }
+    public Product(Long id,String name, String description, Double price) {
+        this.name = name;
+        this.description = description;
+        this.totalPrice = price;
+        this.id = id;
+
+    }
+
 
     public String getName() {
         return name;

@@ -15,10 +15,14 @@
     <div class="text">
       <h3>{{vm.product.name}}</h3>
       <p class="price">{{vm.product.description}}</p>
-      <p class="price"><strong>Price</strong>: {{vm.product.netPrice | number}}</p>
+      <p class="price"><strong>Price</strong>: {{vm.product.netPrice | number}} Bath</p>
+      <p class="price" ng-show="hasRole('Wholesale customer')"><strong>Wholesale Price</strong>:{{vm.product.wholesalePrice | number}} Bath</p>
 
     </div><!-- end text -->
-    <button class="btn btn-primary">
+    <button class="btn btn-primary" ng-show="hasRole('Retail customer')">
+      <i class="fa fa-shopping-cart"></i><span aria-hidden="true" ng-click="vm.addToCart(product)">เพิ่มตะกร้าสินค้า</span>
+    </button>
+    <button class="btn btn-primary" ng-show="hasRole('Wholesale customer')">
       <i class="fa fa-shopping-cart"></i><span aria-hidden="true" ng-click="vm.addToCart(product)">เพิ่มตะกร้าสินค้า</span>
     </button>
     <!--<a><span aria-hidden="true" ng-click="vm.addToCart(product)">addProduct</span></a>-->

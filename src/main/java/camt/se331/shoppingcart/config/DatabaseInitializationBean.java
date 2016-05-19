@@ -29,17 +29,35 @@ public class DatabaseInitializationBean implements InitializingBean {
     @Override
     public void afterPropertiesSet() throws Exception {
         Product[] initProduct = {
-                new Product(1l, "Kindle", "the good book reader", 6900.00,100.00, ImageUtil.resizeImage(ImageUtil.getImage("pic/x.png"), 200)),
-                new Product(2l, "Surface Pro", "The unknow computer", 34000.00,100.00, ImageUtil.getImage("pic/x.png")),
-                new Product(3l, "Mac pro", " Mac book interim", 44000.00,100.00, ImageUtil.getImage("pic/x.png")),
-                new Product(4l, "Candle", "use for lightenup the world", 10.00,100.00, ImageUtil.getImage("pic/x.png")),
-                new Product(5l, "Bin", "User for what ?", 200.00,100.00, ImageUtil.getImage("pic/x.png")),
-                new Product(6l, "Telephone", "Call the others", 150.00,100.00, ImageUtil.getImage("pic/x.png")),
-                new Product(7l, "iPhone", "What is it?", 26000.00,100.00, ImageUtil.getImage("pic/x.png")),
-                new Product(8l, "Galaxy Note 4", "Who still use this ?", 24000.00,100.00, ImageUtil.getImage("pic/x.png")),
-                new Product(9l, "AngularJS", "we hate it", 2000.00,100.00, ImageUtil.getImage("pic/x.png")),
-                new Product(10l, "Mazda 3", "Very handsome guy use this", 300000.00,100.00, ImageUtil.getImage("pic/x.png"))
+                new Product(1l, "ข้าวฮาง", "ผลิตภัณฑ์ \"ข้าววิธีธรรมชาติ\" \n" +
+                        "จุดเด่น  -  ด้านสายพันธุ์ข้าว \"ข้าวโปโละ\"  เป็นสายพันธุ์ข้าวท้องถิ่นของ 'ชาวเขา' เผ่าปกาเกอะญอ \n" +
+                        " มีลักษณะเป็นเม็ดกลม ป้อม มีความนุ่มแบบข้าวเจ้าคล้ายข้าวญี่ปุ่น และมีความเหนียวแบบข้าวเหนียวอยู่ในเมล็ดเดียวกัน\n"+
+                        "ปริมาณ 1 กิโลกรัม", 100.00, 85.00, ImageUtil.resizeImage(ImageUtil.getImage("pic/product2.jpg"), 200)),
+                new Product(2l, "ข้าวกล้องดอย", "ผลิตภัณฑ์ \"ข้าววิธีธรรมชาติ\" \n" +
+                        "จุดเด่น  -  ด้านสายพันธุ์ข้าว \"ข้าวโปโละ\"  เป็นสายพันธุ์ข้าวท้องถิ่นของ 'ชาวเขา' เผ่าปกาเกอะญอ\n" +
+                        "มีลักษณะเป็นเม็ดกลม ป้อม มีความนุ่มแบบข้าวเจ้าคล้ายข้าวญี่ปุ่น และมีความเหนียวแบบข้าวเหนียวอยู่ในเมล็ดเดียวกัน\n"+
+                        "ปริมาณ 1 กิโลกรัม", 50.00, 35.00, ImageUtil.getImage("pic/product6.jpg")),
+                new Product(3l, "ข้าวขาว","ผลิตภัณฑ์ \"ข้าววิธีธรรมชาติ\" \n" +
+                        "จุดเด่น - ด้านสายพันธุ์ข้าว \"ข้าวโปโละ เป็นสายพันธุ์ข้าวท้องถิ่นของ 'ชาวเขา' เผ่าปกาเกอะญอ \n"+
+                        "มีลักษณะเป็นเม็ดกลม ป้อม มีความนุ่มแบบข้าวเจ้าคล้ายข้าวญี่ปุ่น และมีความเหนียวแบบข้าวเหนียวอยู่ในเมล็ดเดียวกัน\n"+
+                        "ปริมาณ 1 กิโลกรัม", 40.00,30.00, ImageUtil.getImage("pic/product4.jpg")),
+                new Product(4l, "หญ้าหวาน", " จุดเด่น -  หญ้าหวานอินทรีย์ \n" +
+                        "คุณสมบัติของหญ้าหวานที่ให้ความหวานแทนน้ำตาล เหมาะสำหรับผู้ป่วยโรคเบาหวาน \n"+
+                        "ปริมาณ 1 กิโลกรัม", 70.00, 60.00, ImageUtil.getImage("pic/product5.jpg")),
+                new Product(5l, "เก๊กฮวย", "จุดเด่น  -  ปลอดสารเคมี\n" +
+                        "-  มีกลิ่นหอม ใช้กระบวนการอบดอกสดแทนการนึ่ง\n" +
+                        "-  คงสภาพสีและกลิ่นตามธรรมชาติ \n" +
+                        "-  เป็นดอกเก๊กฮวยอบแห้ง \n"+
+                        "ปริมาณ 50 กรัม", 60.00, 50.00, ImageUtil.getImage("pic/product8.jpg")),
+                new Product(6l, "กล้วยทอดแดง", "เป็นกล้วยออแกนิคจากธรรมชาตผลิตจากกล้วยน้ำว้า\n"+
+                        "ปริมาณ 1 กิโลกรัม",100.00, 50.00, ImageUtil.getImage("pic/product11.jpg")),
+                new Product(7l, "กล้วยทอดเหลือง", "เป็นกล้วยออแกนิคจากธรรมชาตผลิตจากกล้วยไข\n"+
+                        "ปริมาณ 400 กรัม", 50.00, 40.00, ImageUtil.getImage("pic/product12.jpg")),
+                new Product(8l, "กาแฟฮํกป่า", "กาแฟเป็นพืชที่ต้องพึ่งพาและเกื้อกูลผืนป่า ซึ่งต่างจากพืชเศรษฐกิจทั่วไปที่ต้องถางป่าให้เตียนถึงจะปลูกได้"+
+                        "กาแฟผาส้มเกิดจากแนวคิด “คนอยู่กับป่า...ป่ารักษ์แผ่นดิน”\n"+
+                        "ปริมาณ 250 กรัม", 180.00, 150.00, ImageUtil.getImage("pic/product3.jpg"))
         };
+
         productRepository.save(Arrays.asList(initProduct));
 
 

@@ -58,6 +58,10 @@
         controller: 'editUserController',
         controllerAs: 'vm'
       })
+      .when('/howTo',{
+        templateUrl: 'app/product/howTo.html',
+        controllerAs: 'vm'
+      })
       .otherwise({
         redirectTo: '/index'
       });
