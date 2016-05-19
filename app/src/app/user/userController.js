@@ -34,17 +34,15 @@
     vm.register = function () {
       userService.save(vm.user, function () {
         $rootScope.addSuccess = true;
-        $location.path("userList");
+        $location.path("index");
       });
     };
 
   }
 
   /** @ngInject */
-  function editUserController($http, $location, $rootScope, userService, $route) {
+  function editUserController($route, $routeParams, $location, $rootScope, userService, $http) {
     var vm = this;
-    vm.addPerson = false;
-    vm.editPerson = true;
     var id = $routeParams.id;
     userService.get({id: id},
       // success function
@@ -54,7 +52,7 @@
     );
 
     vm.changeRole = function () {  //$http.put("/product", $scope.product).then(function () {
-      productService.update({id: vm.user.id}, vm.user, function () {
+      userService.update({id: vm.user.id}, vm.user, function () {
         var userid = vm.user.id;
         $rootScope.editSuccess = true;
         $location.path("userList");
@@ -62,8 +60,7 @@
         vm.apply();
       });
     };
-
-  };
+  }
 
 })();
 

@@ -48,7 +48,7 @@
             <th translate>listProduct.picture</th>
             <th translate ng-show="hasRole('admin')">listProduct.edit</th>
             <th translate ng-show="hasRole('admin')">listProduct.delete</th>
-            <th translate ng-show="hasRole('user')">listProduct.addToCart</th>
+            <th translate ng-show="hasRole('Retail customer')||hasRole('Wholesale customer')">listProduct.addToCart</th>
           </tr>
           </thead>
           <tr ng-repeat="product in vm.products | filter:name">
@@ -70,7 +70,7 @@
               <a ng-href="#/listProduct"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"
                                                ng-click="vm.deleteProduct(product.id)"></span></a>
             </td>
-            <td class="text-center" ng-show="hasRole('user')"><a><span aria-hidden="true" ng-click="vm.addToCart(product)">addProduct</span></a>
+            <td class="text-center" ng-show="hasRole('Retail customer')||hasRole('Wholesale customer')"><a><span aria-hidden="true" ng-click="vm.addToCart(product)">addProduct</span></a>
             </td>
           </tr>
 

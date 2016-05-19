@@ -23,7 +23,7 @@
 
 
 
-  <div class="navbar-buttons" ng-hide="hasRole('admin')">
+  <div class="navbar-buttons" ng-show="hasRole('Retail customer')||hasRole('Wholesale customer')">
     <div class="navbar-collapse collapse right" id="basket-overview">
       <a href="#/shoppingCart" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm" translate>btn.cart</span></a>
 
@@ -32,3 +32,4 @@
   </div> <!-- end nav-collapse -->
 
 </div> <!-- end container -->
+</div>

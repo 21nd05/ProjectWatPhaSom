@@ -36,7 +36,7 @@ public class UserController {
     @RequestMapping(value = "customer/{id}",method = RequestMethod.PUT)
     public  User changeRole(@PathVariable("id") Long id) {
         User user  = userService.getUser(id);
-        Role customerRole = new Role("Retail Customer");
+        Role customerRole = new Role("Wholesale customer");
         Set<Role> roles = new HashSet<>();
         roles.add(customerRole);
         user.setRoles(roles);

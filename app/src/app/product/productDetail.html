@@ -1,7 +1,16 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.6";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
 <div cg-busy="{promise:vm.queryPromise,message:'Loading',backdrop:true,minDuration:1000}">
 <div class="row-fluid">
 
-  <div class="row products" style="margin-left: 150px; margin-right: 100px;margin-bottom: 100px;">
+  <div class="row products box" style="margin-left: 150px; margin-right: 100px;margin-bottom: 100px;">
     <div class="col-md-5 col-sm-5"  >
       <div class="product" align="center">
         <div class="flip-container" >
@@ -26,7 +35,10 @@
       <i class="fa fa-shopping-cart"></i><span aria-hidden="true" ng-click="vm.addToCart(product)" translate>btn.cart</span>
     </button>
     <!--<a><span aria-hidden="true" ng-click="vm.addToCart(product)">addProduct</span></a>-->
+
+    <div class="fb-comments" data-href="http://localhost:3000/#/productDetail" data-numposts="5"></div>
   </div>
+
 
 </div>
 </div>

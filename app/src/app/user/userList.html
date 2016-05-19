@@ -1,12 +1,14 @@
 <div cg-busy="{promise:vm.queryPromise,message:'Loading',backdrop:true,minDuration:1000}">
-  <div class="panel panel-default">
+  <div class="container ">
+    <div class="box">
+  <div class="panel panel-default ">
     <!-- Default panel contents -->
 
     <div class="panel-body">
 
       <!-- Serch bar by Little Pan -->
       <div class="row">
-        <div class="col-md-8"><h1>USER INFORMATION</h1></div>
+        <div class="col-md-8"></div>
         <div class="col-md-4">
           <div class=" navbar-collapse collapse right">
             <div class="input-group">
@@ -23,14 +25,18 @@
 
     <!-- Table -->
     <table class="table table-hover">
+      <thead>
       <tr>
-        <th>#</th>
+        <th></th>
         <th translate>listUser.username</th>
         <th translate>listUser.name</th>
         <th translate>listUser.surname</th>
         <th translate>listUser.email</th>
-        <th translate>listUser.role</th>
+        <th tanslate>listUser.changeRole</th>
+        <th translate="">listUser.status</th>
+        <th></th>
       </tr>
+      </thead>
       <tr ng-repeat="user in vm.users | filter:name">
         <td>{{$index+1}}</td>
         <td>{{user.username}}</td>
@@ -39,10 +45,19 @@
         <td>{{user.email}}</td>
         <td>
           <div ng-repeat="role in user.roles">
-            <a href="#/editUser/{{user.id}}" ng-click="vm.changeRole()" > {{role.roleName}}</a>
+            <a href="#/editUser/{{user.id}}" ng-click="vm.changeRole()"> {{role.roleName}}</a>
           </div>
         </td>
+        <td>
+          <select>
+            <option selected>ยังไม่ไดชำระเงิน</option>
+            <option>ชำระเงินแล้ว</option>
+          </select>
+        </td>
+        <td><button class="btn btn-primary" translate>btn.update</button> </td>
       </tr>
     </table>
   </div>
+    </div>
+</div>
 </div>

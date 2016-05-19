@@ -53,13 +53,18 @@
       controller: 'listUserController',
       controllerAs: 'vm'
     })
-      .when('/editUser',{
-
+      .when('/howTo',{
+        templateUrl: 'app/product/howTo.html',
+        controllerAs: 'vm'
+      })
+      .when('/editUser/:id',{
+        templateUrl: 'app/user/userDetail.html',
         controller: 'editUserController',
         controllerAs: 'vm'
       })
-      .when('/howTo',{
-        templateUrl: 'app/product/howTo.html',
+      .when('/registration',{
+        templateUrl: 'app/user/registration.html',
+        controller: 'registerController',
         controllerAs: 'vm'
       })
       .otherwise({

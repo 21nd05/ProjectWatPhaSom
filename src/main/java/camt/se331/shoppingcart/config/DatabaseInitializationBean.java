@@ -91,7 +91,7 @@ public class DatabaseInitializationBean implements InitializingBean {
         Set<Role> roles = new HashSet<>();
         roles.add(adminRole);
         admin.setRoles(roles);
-        Address adminAddress = new Address("99/3","-","4","Sutep","Mueng", "CNX","50200",admin);
+        Address adminAddress = new Address("99/3","-","4","Sutep","Muang", "CNX","50200");
         Set<Address> addresses1 = new HashSet<>();
         addresses1.add(adminAddress);
         admin.setAddresses(addresses1);
@@ -100,23 +100,32 @@ public class DatabaseInitializationBean implements InitializingBean {
         user.setName("Mojune");
         user.setLastName("Pednoi");
         user.setPhoneNumber("0823456789");
-        user.setUsername("user");
+        user.setUsername("mojune");
         user.setEmail("user@yahoo.com");
         user.setPassword("123456");
         Set<Role> roles2 = new HashSet<>();
         roles2.add(userRole);
         user.setRoles(roles2);
+        Address juneAddress = new Address("99/3","-","4","สุทเพ","เมือง", "เชียงใหม่","50200");
+        Set<Address> addresses2 = new HashSet<>();
+        addresses2.add(juneAddress);
+        admin.setAddresses(addresses2);
 
         User foreignUser = new User();
         foreignUser.setName("Nepjune");
         foreignUser.setLastName("Baribooo");
         foreignUser.setPhoneNumber("084567890");
-        foreignUser.setUsername("foreign");
+        foreignUser.setUsername("nepnoi");
         foreignUser.setEmail("foreign@yahoo.com");
         foreignUser.setPassword("123456");
         Set<Role> roles3 = new HashSet<>();
         roles3.add(userRole2);
         foreignUser.setRoles(roles3);
+        Address nepAddress = new Address("3","โคกอีเลิ้ง","4","สี่มุมเมือง","ดอยสะเก็ด", "เชียงใหม่","50123");
+        Set<Address> addresses3 = new HashSet<>();
+        addresses3.add(nepAddress);
+        admin.setAddresses(addresses3);
+
         userRepository.save(admin);
         userRepository.save(user);
         userRepository.save(foreignUser);

@@ -5,7 +5,7 @@
       <li><a href="" data-toggle="modal" data-target="#login-modal" ng-hide="user" translate>top.login</a>
         <a href="" ng-show="user">{{ user.name }}</a>
       </li>
-      <li ng-hide="user"><a href="register.html" translate>top.register</a></li>
+      <li ng-hide="user"><a href="#/registration" translate>top.register</a></li>
       <li ng-show="user">
         <a href="" ng-click="logout()" translate>top.logout</a>
       </li>
@@ -36,14 +36,14 @@
           </div>
 
           <p class="text-center">
-            <button class="btn btn-primary" type="submit" ng-click="login.login()" translate><i class="fa fa-sign-in"></i>
-              top.login
+            <button class="btn btn-primary" type="submit" ng-click="login.login()" ><i class="fa fa-sign-in"></i>
+             <span translate> top.login</span>
             </button>
           </p>
 
           <div class="checkbox">
-            <p class="text-center">
-              <input type="checkbox" ng-model=" login.rememberMe" translate> top.remember
+            <p class="text-center" >
+              <input type="checkbox" ng-model=" login.rememberMe" ><span translate> top.remember</span>
             </p>
           </div>
         </form>
