@@ -7,16 +7,16 @@
   <!--/.navbar-header -->
   <div class="navbar-collapse collapse" id="navigation">
     <ul class="nav navbar-nav navbar-left" ng-hide="hasRole('admin')">
-      <li><a href="#/index" translate>หน้าหลัก</a></li>
-      <li><a href="#/product" translate>สินค้าทั้งหมด</a></li>
-      <li><a href="#/howTo" translate>วิธีสั่งซื้อสินค้า</a></li>
+      <li><a href="#/index" translate>navbar.mainpage</a></li>
+      <li><a href="#/product" translate>navbar.allProducts</a></li>
+      <li><a href="#/howTo" translate>navbar.howTo</a></li>
     </ul>
     <!--/.navbar-header for admin -->
       <ul class="nav navbar-nav navbar-left" ng-show="hasRole('admin')">
-        <li><a href="#/index" translate>หน้าหลัก</a></li>
-        <li><a href="#/addProduct" translate>เพิ่มสินค้า</a></li>
-        <li><a href="#/listProduct" translate>จัดการสินค้า</a></li>
-        <li><a href="#/userList" translate>ข้อมูลลุกค้า</a></li>
+        <li><a href="#/index" translate>navbar.mainpage</a></li>
+        <li><a href="#/addProduct" translate>navbar.addProduct</a></li>
+        <li><a href="#/listProduct" translate>navbar.userMangaement</a></li>
+        <li><a href="#/userList" translate>navbar.userInfo</a></li>
       </ul>
 
   </div> <!--/.nav-collapse -->
@@ -25,7 +25,7 @@
 
   <div class="navbar-buttons" ng-hide="hasRole('admin')">
     <div class="navbar-collapse collapse right" id="basket-overview">
-      <a href="#/shoppingCart" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm">ตะกร้าสินค้า</span></a>
+      <a href="#/shoppingCart" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm" translate>btn.cart</span></a>
 
     <!--/.nav-collapse -->
 
