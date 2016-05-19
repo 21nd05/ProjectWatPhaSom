@@ -1,107 +1,99 @@
 <div cg-busy="{promise:vm.queryPromise,message:'Loading',backdrop:true,minDuration:1000}">
-<div class="container ">
-  <div class="panel panel-default box">
-    <div class="panel-heading"></div>
-    <div class="panel-body">
-      <div class="product" align="center">
-        <div class="flip-container" style="margin-top: 20px">
-          <div class="row" ng-show="vm.addPerson">
-            <h1>Add new product</h1>
-          </div>
-          <div class="row" ng-show="vm.editPerson">
-            <h1>Edit Product</h1>
-            <div ng-repeat="image in vm.product.images" class="text-center">
-              <img ng-src="data:{{image.contentType}};base64,{{image.content}}" class="thumbnail">
-              <a ng-href="#/editProduct/{{vm.product.id}}"><span style="position: " class="glyphicon glyphicon-remove-circle"
-                                                                 aria-hidden="true"
-                                                                 ng-click="vm.deleteImage(image.id)"></span></a>
-            </div>
-          </div>
-        </div>
-      </div><!-- end product -->
-    </div>
-    <div class="panel-heading"></div>
-  </div>
-</div>
-
-
-  <div class="row-fluid">
-    <div class="row products" style="margin-left: 250px; margin-right: 250px;margin-bottom: 30px; border:1px solid lightseagreen; border-radius: 50px">
-      <div >
-
-
-        <form name="editform" novalidate flow-init style="margin: 30px">
-          <div class="form-group">
-            <!-- Sidebar content-->
-            <label for="productname">name :</label>
-            <input ng-model="vm.product.name" class="form-control" id="productname" name="productname" placeholder="name"
-                   required/>
-
-            <div class="alert alert-danger" role="alert" ng-show="vm.editform.productname.$error.required">
-              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-              <span class="sr-only">Error:</span>
-              Product name is Required!
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="productdescription">Description :</label>
-            <input ng-model="vm.product.description" class="form-control" id="productdescription"
-                   placeholder="description" name="productdescription" required/>
-
-            <div class="alert alert-danger" role="alert" ng-show="vm.editform.productdescription.$error.required">
-              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-              <span class="sr-only">Error:</span>
-              Description is Required!
+  <div class="container ">
+    <div class="panel panel-default ">
+      <div class="panel-heading" ng-show ="vm.addPerson" ><h3 align="center">เพิ่มข้อมูลสินค้า</h3>  </div>
+      <div class="panel-heading" ng-show ="vm.editPerson"> <h3 align="center">แก้ไขข้อมูลสินค้า</h3> </div>
+      <div class="panel-body">
+        <div class="product">
+          <div class="flip-container" style="margin-top: 20px">
+            <div class="row products" ng-show="vm.editPerson">
+                <div class="col-md-4" align="center" style="position: relative" ng-repeat="image in vm.product.images" class="text-center">
+                  <img ng-src="data:{{image.contentType}};base64,{{image.content}}" class="thumbnail">
+                  <a ng-href="#/editProduct/{{vm.product.id}}"><span
+                    style="position: absolute; top: 5px; left: 5px; z-index: 999"
+                    class="glyphicon glyphicon-remove-circle"
+                    aria-hidden="true"
+                    ng-click="vm.deleteImage(image.id)">ลบภาพนี้</span></a>
+                </div>
             </div>
 
-          </div>
-          <div class="form-group">
-            <label for="productprice">retail price :</label>
-            <input ng-model="vm.product.totalPrice" name="productprice" class="form-control" id="productprice"
-                   placeholder="retail price" type="number" required/>
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+              <form name="editform" novalidate flow-init>
+                <div class="form-group">
+                  <!-- Sidebar content-->
+                  <label for="productname">ชื่อสินค้า :</label>
+                  <input ng-model="vm.product.name" class="form-control" id="productname" name="ชื่อสินค้า"
+                         placeholder="ชื่อสินค้า"
+                         required/>
+                  <div class="alert alert-danger" role="alert" ng-show="editform.productname.$error.required">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    กรุณากรอกชื่อสินค้า
+                  </div>
+                </div>
 
-            <div class="alert alert-danger" role="alert" ng-show="vm.editform.productprice.$error.required">
-              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-              <span class="sr-only">Error:</span>
-              Price is Required!
-            </div>
-            <div class="alert alert-danger" role="alert" ng-show="vm.editform.productprice.$error.number">
-              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-              <span class="sr-only">Error:</span>
-              Enter the number!!
-            </div>
-          </div>
+                <div class="form-group">
+                  <label for="productdescription">คำอธิบาย :</label>
+                  <textarea class="form-control" ng-model="vm.product.description"  id="productdescription"
+                            placeholder="คำอธิบาย" name="productdescription" rows="5"></textarea>
+                </div>
 
-          <div class="form-group">
-            <label for="wholesalePrice">wholesale price :</label>
-            <input ng-model="vm.product.wholesalePrice" name="wholesalePrice" class="form-control" id="wholesalePrice"
-                   placeholder="wholesale price" type="number" required/>
+                <div class="form-group">
+                  <label for="productprice">รายคาขายปลีกต่อชิ้น :</label>
+                  <input ng-model="vm.product.totalPrice" name="productprice" class="form-control" id="productprice"
+                         placeholder="รายคาขายปลีกต่อชิ้น" type="number" required/>
+                  <div class="alert alert-danger" role="alert" ng-show="editform.productprice.$error.required">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    กรุณาระบุราคา!
+                  </div>
+                </div>
 
-            <div class="alert alert-danger" role="alert" ng-show="vm.editform.wholesalePrice.$error.required">
-              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-              <span class="sr-only">Error:</span>
-              Price is Required!
-            </div>
-            <div class="alert alert-danger" role="alert" ng-show="vm.editform.wholesalePrice.$error.number">
-              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-              <span class="sr-only">Error:</span>
-              Enter the number!!
-            </div>
-          </div>
+                <div class="form-group">
+                  <label for="wholesalePrice">ราคาขายส่งต่อชิ้น :</label>
+                  <input ng-model="vm.product.wholesalePrice" name="wholesalePrice" class="form-control"
+                         id="wholesalePrice"
+                         placeholder="ราคาขายส่งต่อชิ้น" type="number" required/>
+                  <div class="alert alert-danger" role="alert" ng-show="editform.wholesalePrice.$error.required">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    กรุณาระบุราคา!
+                  </div>
+                </div>
 
-          <div class="form-group" align="center">
-            <input type="file" flow-btn/>
-            <div ng-repeat="file in $flow.files">
-              <img flow-img="$flow.files[{{$index}}]"></td>
-              <p>{{file.name}}</p>
+                <div class="form-group" align="center">
+                  <input type="file" flow-btn/>
+                  <div ng-repeat="file in $flow.files">
+                    <img flow-img="$flow.files[{{$index}}]"></td>
+                    <p>{{file.name}}</p>
+                  </div>
+                </div>
+                <div align="center">
+                  <button type="submit" class="btn btn-primary" ng-click="vm.addProduct($flow)" ng-show="vm.addPerson">
+                    เพิ่มสินค้า
+                  </button>
+                  <button type="submit" class="btn btn-primary" ng-click="vm.editProduct($flow)"
+                          ng-show="vm.editPerson">
+                    แก้ไข
+                  </button>
+                </div>
+              </form>
+
+
             </div>
           </div>
-          <div align="center">
-          <button type="submit" class="btn btn-primary" ng-click="vm.addProduct($flow)" ng-show="vm.addPerson">Add</button>
-          <button type="submit" class="btn btn-primary" ng-click="vm.editProduct($flow)" ng-show="vm.editPerson">Edit</button>
-          </div>
-        </form>
+        </div><!-- end product -->
       </div>
+      <div class="panel-footer"></div>
     </div>
+
   </div>
 </div>
+
+
+<div class="row-fluid">
+
+</div>
+
+
