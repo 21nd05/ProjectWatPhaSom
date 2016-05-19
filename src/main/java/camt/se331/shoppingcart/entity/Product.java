@@ -100,13 +100,13 @@ public class Product implements Comparable{
         this.id = id;
         this.wholesalePrice = wholesalePrice;
     }
-    public Product(Long id,String name, String description, Double price) {
-        this.name = name;
-        this.description = description;
-        this.totalPrice = price;
-        this.id = id;
-
-    }
+//    public Product(Long id,String name, String description, Double price) {
+//        this.name = name;
+//        this.description = description;
+//        this.totalPrice = price;
+//        this.id = id;
+//
+//    }
 
 
     public String getName() {
