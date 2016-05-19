@@ -6,7 +6,7 @@
       <!-- *** MENUS AND FILTERS END *** -->
 
       <div>
-        <div class="box"><h1>สินค้าทั้งหมด</h1></div>
+        <div class="box" translate><h1>สินค้าทั้งหมด</h1></div>
       </div>
       <div class="row products" align="center">
         <div class="col-md-4 col-sm-6" ng-repeat="product in vm.products | filter:name ">
@@ -23,14 +23,14 @@
               <p class="price" ng-show="hasRole('Retail customer')">{{product.netPrice | number}} Bath</p>
               <p class="price" ng-show="hasRole('Wholesale customer')">{{product.wholesalePrice | number}} Bath</p>
               <p class="buttons" >
-                <a href="#/productDetail/{{product.id}}" class="btn btn-primary">รายละเอียดสินค้า</a>
+                <a href="#/productDetail/{{product.id}}" class="btn btn-primary"  translate >รายละเอียดสินค้า</a>
                 <button class="btn btn-primary" ng-show="hasRole('Retail customer')">
-                  <i class="fa fa-shopping-cart"></i><span aria-hidden="true" ng-click="vm.addToCart(product)" >เพิ่มตะกร้าสินค้า</span>
+                  <i class="fa fa-shopping-cart"></i><span aria-hidden="true" ng-click="vm.addToCart(product)" >ใส่ตะกร้า</span>
                 </button>
               </p>
               <p class="buttons" >
                 <button class="btn btn-primary" ng-show="hasRole('Wholesale customer')">
-                  <i class="fa fa-shopping-cart"></i><span aria-hidden="true" ng-click="vm.addToCart(product)" >เพิ่มตะกร้าสินค้า</span>
+                  <i class="fa fa-shopping-cart"></i><span aria-hidden="true" ng-click="vm.addToCart(product)" >ใส่ตระกร้า</span>
                 </button>
               </p>
 

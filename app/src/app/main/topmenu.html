@@ -5,11 +5,11 @@
       <li><a href="#" data-toggle="modal" data-target="#login-modal" ng-hide="user">เข้าสู่ระบบ</a>
         <a href="" ng-show="user">{{ user.name }}</a>
       </li>
-      <li ng-hide="user"><a href="register.html">สมัครสมาชิก</a></li>
+      <li ng-hide="user"><a href="register.html" translate>สมัครสมาชิก</a></li>
       <li ng-show="user">
-        <a href="#" ng-click="logout()">ออกจากระบบ</a>
+        <a href="" ng-click="logout()" translate>ออกจากระบบ</a>
       </li>
-      <li><a href="#">EN </a></li>
+      <li ng-class="{'active':currentLocale== 'en'}"><a href="" ng-click="changeLanguage('en')">EN </a></li>
       <li><a href="#">TH </a></li>
     </ul>
   </div>
@@ -24,7 +24,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="Login">เข้าสู่ระบบ</h4>
+        <h4 class="modal-title" id="Login" translate>เข้าสู่ระบบ</h4>
       </div>
       <div class="modal-body">
         <form>
@@ -36,7 +36,7 @@
           </div>
 
           <p class="text-center">
-            <button class="btn btn-primary" type="submit" ng-click="login.login()"><i class="fa fa-sign-in"></i>
+            <button class="btn btn-primary" type="submit" ng-click="login.login()" translate><i class="fa fa-sign-in"></i>
               เข้าสู่ระบบ
             </button>
           </p>

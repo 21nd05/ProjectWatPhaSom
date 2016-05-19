@@ -1,58 +1,57 @@
-
-<div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading">ShoppingCart</div>
-  <div class="panel-body">
-    ShoppingCart Details
-  </div>
-
-  <form name="editform" novalidate>
-    <div class="form-group">
-      <!-- Table -->
-      <table class="table table-hover">
-        <tr>
-          <th>#</th>
-          <th translate>listProduct.name </th>
-          <th translate>listProduct.description</th>
-          <th  class="text-center"translate>listProduct.amount</th>
-          <th  class="text-center"translate>listProduct.netPrice</th>
-          <th  class="text-center"translate>listProduct.price</th>
-          <th  class="text-center" translate>listProduct.remove</th>
-
-
-        </tr>
-        <tr ng-repeat="selectedProduct in vm.cart.selectedProducts">
-          <td>{{$index+1}}</td>
-          <td>{{selectedProduct.product.name}}</td>
-          <td>{{selectedProduct.product.description}}</td>
-          <td ><input ng-model="selectedProduct.amount" class="form-control text-right" id="selectedproductamount"
-                                       placeholder="amount" name="productdescription" required/></td>
-          <td class="text-center">{{selectedProduct.product.netPrice | number:2}}</td>
-          <td class="text-center">{{vm.totalEach($index) |number:2}}</td>
-          <td class="text-center">
-            <button class="btn btn-primary">
-              <i class="fa fa-shopping-cart"></i><span aria-hidden="true" ng-click="vm.removeProduct($index)">ลบตะกร้าสินค้า</span>
-            </button>
-
-          </td>
-        </tr>
-        <tr>
-          <th></th>
-          <th><strong translate>listProduct.total</strong> </th>
-          <th></th>
-          <th class="text-right">{{vm.total() | number :2}}</th>
-        </tr>
-
-      </table>
-      <div class="panel-body text-center">
-        <a href ng_click="vm.updateCart()" class="btn btn-primary ">update cart</a>
-        <a href ng_click="vm.saveCart(vm.cart)" class="btn btn-primary ">save cart</a>
+<div class="container">
+  <div class="panel panel-default box">
+    <div class="panel-heading">
+      <div class="alert alert-success alert-dismissible" role="alert" ng-show="cartUpdateSuccess">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span></button>
+        <strong>Success!</strong> Success update the product
       </div>
     </div>
-  </form>
-  <div class="alert alert-success alert-dismissible" role="alert" ng-show="cartUpdateSuccess">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span></button>
-    <strong>Success!</strong> Success edit the product
+    <div class="panel-body">
+      <form name="editform" novalidate>
+        <div class="form-group">
+          <!-- Table -->
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th></th>
+              <th translate width="150px">listProduct.name</th>
+              <th class="text-center" translate>listProduct.amount</th>
+              <th class="text-center" translate>ราคาต่อหน่วย</th>
+              <th class="text-center" translate>listProduct.price</th>
+              <th class="text-center" translate>listProduct.remove</th>
+            </tr>
+            </thead>
+            <tr ng-repeat="selectedProduct in vm.cart.selectedProducts">
+              <td>{{$index+1}}</td>
+              <td>{{selectedProduct.product.name}}</td>
+              <td><input ng-model="selectedProduct.amount" class="form-control text-right" id="selectedproductamount"
+                         placeholder="amount" name="productdescription" required/></td>
+              <td class="text-center">{{selectedProduct.product.netPrice | number:2}}</td>
+              <td class="text-center">{{vm.totalEach($index) |number:2}}</td>
+              <td class="text-center">
+                <button class="btn btn-primary">
+                  <span aria-hidden="true" ng-click="vm.removeProduct($index)" class="glyphicon glyphicon-remove"></span>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <th></th>
+              <th translate >รวม</th>
+              <th class="text-right">{{vm.total() | number :2}}</th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+
+          </table>
+          <div class="panel-body text-center">
+            <a href ng_click="vm.updateCart()" class="btn btn-primary "  translate>update cart</a>
+            <a href ng_click="vm.saveCart(vm.cart)" class="btn btn-primary "  translate>save cart</a>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="panel-footer"></div>
   </div>
 </div>
