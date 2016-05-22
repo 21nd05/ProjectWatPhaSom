@@ -24,6 +24,8 @@ public class Product implements Comparable{
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
     Set<Image> images = new HashSet<>();
 
+
+//                 Long id,String name, String description, Double price, Double wholesalePrice
     public Product(Long id,String name, String description, Double totalPrice,Double wholesalePrice, Image image) {
         this.id = id;
         this.name = name;
@@ -33,6 +35,15 @@ public class Product implements Comparable{
         this.images.add(image) ;
     }
 
+    public Product(Product product){
+
+    }
+
+    public Product(String milk, double v) {
+    }
+
+    public Product(long id, String name, String des, double price) {
+    }
 
 
     public Set<Image> getImages() {

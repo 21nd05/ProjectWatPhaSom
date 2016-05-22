@@ -15,7 +15,9 @@ public class SelectedProduct {
     Integer amount;
 
     public Double getTotalPrice(){
-        return 0.0;
+
+        double result = product.totalPrice*amount;
+        return result;
     }
 
     public SelectedProduct() {
