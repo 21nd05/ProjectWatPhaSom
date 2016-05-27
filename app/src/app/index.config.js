@@ -11,7 +11,7 @@
 
   /** @ngInject */
   function configTranslation($translateProvider) {
-    $translateProvider.useUrlLoader('http://localhost:8080/messageBundle');
+    $translateProvider.useUrlLoader('http://watphasomshop.cloudapp.net:8080/watphasom/messageBundle');
     $translateProvider.useStorage('UrlLanguageStorage');
     $translateProvider.preferredLanguage('th');
     $translateProvider.fallbackLanguage('th');

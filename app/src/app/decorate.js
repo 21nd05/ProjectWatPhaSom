@@ -1,7 +1,7 @@
 (function(){
   'use strict';
 
-  var API_PREFIX = 'http://localhost:8080';
+  var API_PREFIX = 'http://watphasomshop.cloudapp.net:8080/watphasom';
   /** @ngInject */
   angular.module('ngResource+apiPrefix', [
     'ngResource'
